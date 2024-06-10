@@ -11,53 +11,39 @@
 
     <table>
         <tr>
-            <th>productID</th>
-            <th>categoryID_fk</th>
-            <th>categoryName</th>
-            <th>productName</th>
-            <th>productDescription</th>
-            <th>productSerialNumber</th>
-            <th>quantity</th>
-            <th>minimumStockLevel</th>
-            <th>maximumStockLevel</th>
-            <th>locationName</th>
-            <th>locationAddress</th>
+            <th>Product ID</th>
+            <th>Category ID</th>
+            <th>Category Name</th>
+            <th>Product Name</th>
+            <th>Product Desc</th>
+            <th>Serial Number</th>
+            <th>Quanityt</th>
+            <th>Min Stock Level</th>
+            <th>Max Stock Level</th>
+            <th>Location</th>
+            <th>Location Address</th>
         </tr>
 
     <?php
 
     // connection settings
 
-    $server = "localhost";
-    $dbUser = "root";
-    $dbPassword = "";
-    $dbName = "inventory_management_db";
+    include("includes/connectionSettings.php");
 
-    $conn = mysqli_connect($server, $dbUser, $dbPassword, $dbName);
-
-    // if failure to connect to the database for some reason
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // call procedure
-    // $query = "CALL proc_getAllProducts();";
 
     $sql = "CALL proc_getAllProducts()";
 
-
     $result = mysqli_query($conn, $sql);
 
-
-
+    // show results from procedure in a table
     if ($result->num_rows > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr><td>" . $row['productID'] . "</td><td>" . $row['categoryID_fk'] . "</td><td>"
-            . $row['categoryName'] . "</td><td>" . $row['productName'] . "</td><td>" .
-            $row['productDescription'] . "</td><td>" . $row['productSerialNumber'] . 
-            "</td><td>" . $row['quantity'] . "</td><td>" . $row['minimumStockLevel'] . 
-            "</td><td>" . $row['maximumStockLevel'] . "</td><td>" . $row['locationName'] . 
-            "</td><td>" . $row['locationAddress'] . "</td></tr>";
+            echo "<tr><td>" . $row["Product ID"] . "</td><td>" . $row["categoryID_fk"] . "</td><td>"
+            . $row["categoryName"] . "</td><td>" . $row["productName"] . "</td><td>" .
+            $row["productDescription"] . "</td><td>" . $row["productSerialNumber"] . 
+            "</td><td>" . $row["quantity"] . "</td><td>" . $row["minimumStockLevel"] . 
+            "</td><td>" . $row["maximumStockLevel"] . "</td><td>" . $row["locationName"] . 
+            "</td><td>" . $row["locationAddress"] . "</td></tr>";
         }
         echo "</table>";
     }
@@ -65,11 +51,7 @@
         echo "no results";
     }
 
-    
-
-
     $conn->close();
-
     ?>
     </table>
 
