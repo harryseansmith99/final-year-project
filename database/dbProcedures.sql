@@ -11,7 +11,7 @@ BEGIN
         ProductTable.productName,
         ProductTable.productDescription,
         ProductTable.productSerialNumber,
-        StockTable.quanity,
+        StockTable.quantity,
         StockTable.minimumStockLevel,
         StockTable.maximumStockLevel,
         LocationTable.locationName,
