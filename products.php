@@ -20,6 +20,11 @@
 
     $conn = mysqli_connect($server, $dbUser, $dbPassword, $dbName);
 
+    // if failure to connect to the database for some reason
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
     // call procedure
     $allProductsProcedure = "CALL proc_getAllProducts()";
     $query = mysqli_query($conn, $getAllProductsProcedure);
