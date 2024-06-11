@@ -56,6 +56,10 @@
                     <td>$row[minimumStockLevel]</td>
                     <td>$row[maximumStockLevel]</td>
                     <td>$row[storageLocation]</td>
+                    <td>
+                        <a class='btn btn-primary btn-lg' href='edit.php'>Edit</a>
+                        <a class='btn btn-danger btn-lg' href='delete.php'>Delete</a>
+                    </td>
                 ";
             }
             echo "</table>";

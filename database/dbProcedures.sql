@@ -19,21 +19,21 @@ BEGIN
 END $$
 DELIMITER ;
 
--- DELIMITER $$
+DELIMITER $$
 
--- CREATE PROCEDURE IF NOT EXISTS proc_editExistingProduct(
---     IN productIdtoFind INT,
---     IN newProductName VARCHAR(255),
---     IN newProductDescr VARCHAR(1000),
---     IN newProductSerial VARCHAR(255)
--- )
--- BEGIN
---     UPDATE ProductTable SET ProductTable.productName = newProductName,
---     ProductTable.productDescription = newProductDescr,
---     ProductTable.productSerialNumber = newProductSerial
---     WHERE ProductTable.productID = productIdtoFind;
--- END $$
--- DELIMITER ;
+CREATE OR REPLACE PROCEDURE proc_editProductDetails(
+    IN productIdtoFind INT,
+    IN newProductName VARCHAR(255),
+    IN newProductDescr VARCHAR(1000),
+    IN newProductSerial VARCHAR(255)
+)
+BEGIN
+    UPDATE ProductTable SET ProductTable.productName = newProductName,
+    ProductTable.productDescription = newProductDescr,
+    ProductTable.productSerialNumber = newProductSerial
+    WHERE ProductTable.productID = productIdtoFind;
+END $$
+DELIMITER ;
 
 
 
