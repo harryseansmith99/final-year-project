@@ -1,8 +1,7 @@
 USE inventory_management_db;
 
 DELIMITER $$
-
-CREATE PROCEDURE IF NOT EXISTS proc_getAllProducts()
+CREATE OR REPLACE PROCEDURE proc_getAllProducts()
 BEGIN
     SELECT
         ProductTable.productID,
@@ -16,8 +15,7 @@ BEGIN
         StockTable.maximumStockLevel
     FROM ProductTable
         JOIN CategoryTable ON ProductTable.categoryID_fk = CategoryTable.categoryID
-        JOIN StockTable ON StockTable.productID_fk = ProductTable.productID
-        JOIN LocationTable ON StockTable.locationID_fk = LocationTable.locationID;
+        JOIN StockTable ON StockTable.productID_fk = ProductTable.productID;
 END $$
 DELIMITER ;
 
@@ -42,7 +40,7 @@ DELIMITER ;
 DELIMITER $$
 
 
-CREATE PROCEDURE IF NOT EXISTS proc_getAllCategories() 
+CREATE OR REPLACE PROCEDURE proc_getAllCategories() 
 BEGIN
     SELECT * FROM CategoryTable;
 END $$
@@ -50,7 +48,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE IF NOT EXISTS proc_getAllUsers()
+CREATE OR REPLACE PROCEDURE proc_getAllUsers()
 BEGIN
     SELECT
         UserTable.userID,
@@ -63,7 +61,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE IF NOT EXISTS proc_getAllAdmins()
+CREATE OR REPLACE PROCEDURE proc_getAllAdmins()
 BEGIN
     SELECT
         UserTable.userID,
@@ -77,7 +75,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE IF NOT EXISTS proc_getAllStandardStaff()
+CREATE OR REPLACE PROCEDURE proc_getAllStandardStaff()
 BEGIN
     SELECT
         UserTable.userID,
@@ -91,7 +89,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE IF NOT EXISTS proc_getUserByID(IN userIdSearch INT)
+CREATE OR REPLACE PROCEDURE proc_getUserByID(IN userIdSearch INT)
 BEGIN
     SELECT * FROM UserTable
     WHERE UserTable.userID = userIdSearch;
@@ -100,7 +98,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE IF NOT EXISTS proc_getUserByEmail(IN userEmailSearch VARCHAR(255))
+CREATE OR REPLACE PROCEDURE proc_getUserByEmail(IN userEmailSearch VARCHAR(255))
 BEGIN
     SELECT * FROM UserTable
     WHERE UserTable.email = userEmailSearch;
@@ -109,7 +107,7 @@ DELIMITER ;
 
 DELIMITER $$
 
-CREATE PROCEDURE IF NOT EXISTS proc_getUserPassword(IN userPasswordSearch VARCHAR(255))
+CREATE OR REPLACE PROCEDURE proc_getUserPassword(IN userPasswordSearch VARCHAR(255))
 BEGIN
     SELECT * FROM UserTable
     WHERE UserTable.userPassword = userPasswordSearch;

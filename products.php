@@ -55,7 +55,7 @@
                     <td>$row[quantity]</td>
                     <td>$row[minimumStockLevel]</td>
                     <td>$row[maximumStockLevel]</td>
-                    <td>$row[locationName]</td>
+                    <td>$row[storageLocation]</td>
                 ";
             }
             echo "</table>";
