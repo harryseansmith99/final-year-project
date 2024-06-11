@@ -22,7 +22,21 @@ BEGIN
 END $$
 DELIMITER ;
 
+CREATE PROCEDURE IF NOT EXISTS proc_editExistingProduct(
+    IN productIdtoFind VARCHAR(10),
+    IN newProductName VARCHAR(255),
+    IN newProductDescr(1000),
+    IN newProductSerial(255)
+)
+BEGIN
+    UPDATE ProductTable SET ProductTable.productName = newProductName,
+    ProductTable.productDescription = newProductDescr,
+    ProductTable.productSerialNumber = newProductSerial
+    WHERE ProductTable.productID = productIdtoFind;
+END $$
 DELIMITER $$
+
+
 
 CREATE PROCEDURE IF NOT EXISTS proc_getAllCategories() 
 BEGIN

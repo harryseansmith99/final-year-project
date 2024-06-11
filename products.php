@@ -13,7 +13,7 @@
     include "includes/sidebar.php"; 
     ?>
 
-    <div class="container my-5">
+    <div class="container-fluid ">
 
         <div class="main">
 
@@ -30,7 +30,6 @@
                 <th>Min Stock Level</th>
                 <th>Max Stock Level</th>
                 <th>Location</th>
-                <th>Location Address</th>
             </tr>
 
         <?php
@@ -42,7 +41,7 @@
 
         $result = mysqli_query($conn, $sql);
 
-        // show results from procedure in a table
+        // show all products in a table
         if ($result->num_rows > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "
@@ -56,7 +55,6 @@
                     <td>$row[minimumStockLevel]</td>
                     <td>$row[maximumStockLevel]</td>
                     <td>$row[locationName]</td>
-                    <td>$row[locationAdress]</td>
                 ";
             }
             echo "</table>";
