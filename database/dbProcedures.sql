@@ -14,7 +14,6 @@ BEGIN
         StockTable.minimumStockLevel,
         StockTable.maximumStockLevel,
         LocationTable.locationName,
-        LocationTable.locationAddress
     FROM ProductTable
         JOIN CategoryTable ON ProductTable.categoryID_fk = CategoryTable.categoryID
         JOIN StockTable ON StockTable.productID_fk = ProductTable.productID
@@ -35,6 +34,21 @@ BEGIN
     WHERE ProductTable.productID = productIdtoFind;
 END $$
 DELIMITER $$
+
+CREATE PROCEDURE prod_addNewProduct(
+    IN newProductID VARCHAR(10),
+    IN categoryName,
+    IN newProductName,
+    IN newProductDescr,
+    IN newProductSerial,
+    IN possibleQuantity,
+    IN possibleMinStockLevel,
+    IN possibleMaxStockLevel,
+    IN possibleLocationName
+)
+BEGIN
+    INSERT INTO 
+
 
 
 

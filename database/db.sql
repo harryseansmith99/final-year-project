@@ -15,14 +15,14 @@ USE inventory_management_db;
 
 DROP TABLE IF EXISTS CategoryTable;
 CREATE TABLE CategoryTable (
-    categoryID VARCHAR(10) NOT NULL,
+    categoryID INT NOT NULL AUTO_INCREMENT,
     categoryName VARCHAR(255) NULL,
     PRIMARY KEY (categoryID)
 );
 
 DROP TABLE IF EXISTS LocationTable;
 CREATE TABLE LocationTable (
-    locationID VARCHAR(10) NOT NULL,
+    locationID INT NOT NULL AUTO_INCREMENT,
     locationName VARCHAR(255) NOT NULL,
     locationAddress VARCHAR(255),
     PRIMARY KEY (locationID)
@@ -30,18 +30,18 @@ CREATE TABLE LocationTable (
 
 DROP TABLE IF EXISTS ProductTable;
 CREATE TABLE ProductTable (
-    productID VARCHAR(10) NOT NULL,
+    productID INT NOT NULL AUTO_INCREMENT,
     categoryID_fk VARCHAR(10) NOT NULL,
     productName VARCHAR(255) NOT NULL,
     productDescription VARCHAR(1000) NOT NULL,
     productSerialNumber VARCHAR(255) NOT NULL,
     PRIMARY KEY (productID),
     FOREIGN KEY (categoryID_fk) REFERENCES CategoryTable(categoryID)
-);
+) AUTO
 
 DROP TABLE IF EXISTS StockTable;
 CREATE TABLE StockTable (
-    stockID VARCHAR(10) NOT NULL,
+    stockID INT NOT NULL AUTO_INCREMENT,
     productID_fk VARCHAR(10) NOT NULL,
     locationID_fk VARCHAR(10) NOT NULL,
     quantity INT NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE StockTable (
 
 DROP TABLE IF EXISTS UserTable;
 CREATE TABLE UserTable (
-    userID VARCHAR(10) NOT NULL,
+    userID INT NOT NULL AUTO_INCREMENT,
     firstName VARCHAR(255) NOT NULL,
     lastName VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
