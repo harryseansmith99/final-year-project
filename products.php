@@ -13,11 +13,11 @@
     include "includes/sidebar.php"; 
     ?>
 
-    <div class="container-fluid ">
+    <div class="container-fluid my-5">
 
         <div class="main">
 
-        <h1>get all products table test</h1>
+        <h1>All Current Products</h1>
 
         <table class="table">
             <thead>
@@ -57,8 +57,8 @@
                     <td>$row[maximumStockLevel]</td>
                     <td>$row[storageLocation]</td>
                     <td>
-                        <a class='btn btn-primary btn-lg' href='edit.php'>Edit</a>
-                        <a class='btn btn-danger btn-lg' href='delete.php'>Delete</a>
+                        <a class='btn btn-primary btn-lg' href='edit.php'>Edit Product Details</a>
+                        <a class='btn btn-danger btn-lg' href='delete.php'>Delete Product</a>
                     </td>
                 ";
             }

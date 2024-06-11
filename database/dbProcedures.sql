@@ -25,13 +25,18 @@ CREATE OR REPLACE PROCEDURE proc_editProductDetails(
     IN productIdtoFind INT,
     IN newProductName VARCHAR(255),
     IN newProductDescr VARCHAR(1000),
-    IN newProductSerial VARCHAR(255)
+    IN newProductSerial VARCHAR(255),
+    IN newMinStockLevel INT,
+    IN newMaxStockLevel INT
 )
 BEGIN
     UPDATE ProductTable SET ProductTable.productName = newProductName,
     ProductTable.productDescription = newProductDescr,
     ProductTable.productSerialNumber = newProductSerial
     WHERE ProductTable.productID = productIdtoFind;
+    UPDATE StockTable SET StockTable.minimumStockLevel = newMinStockLevel,
+    StockTable.maximumStockLevel = newMaxStockLevel
+    WHERE StockTable.productID_fk = productIdToFind;
 END $$
 DELIMITER ;
 

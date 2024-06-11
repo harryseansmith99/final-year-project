@@ -88,15 +88,15 @@ VALUES (1, "product 1", "This is the 1st product", "RxupSXR2"),
 
 INSERT INTO StockTable (productID_fk, storageLocation, quantity, minimumStockLevel, maximumStockLevel)
 VALUES (1, "Location A", 50,  NULL, NULL),
-(1, "Location A", 23, 10, 100),
-(1, "Location b", 11, NULL, NULL),
-(1, "Location c", 40, 10, NULL),
-(1, "Location d", 30, 5, 30),
-(1, "Location e", 20, 20, 100),
-(1, "Location f", 10, 15, 30),
-(1, "Location g", 75, NULL, NULL),
-(1,  "Location h", 60, NULL, NULL),
-(1, "Location i", 20, 10, 20);
+(2, "Location b", 23, 10, 100),
+(3, "Location c", 11, NULL, NULL),
+(4, "Location d", 40, 10, NULL),
+(5, "Location e", 30, 5, 30),
+(6, "Location f", 20, 20, 100),
+(7, "Location g", 10, 15, 30),
+(8, "Location h", 75, NULL, NULL),
+(9, "Location i", 60, NULL, NULL),
+(10, "Location j", 20, 10, 20);
 
 
 INSERT INTO UserTable (firstName, lastName, email, userPassword, secLevel)
