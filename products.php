@@ -4,20 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
+    <?php 
+    include "includes/sidebar.php"; 
+    ?>
+
+    <div class="main">
+
     <h1>get all products table test</h1>
+
 
     <table>
         <tr>
             <th>Product ID</th>
-            <th>Category ID</th>
             <th>Category Name</th>
             <th>Product Name</th>
             <th>Product Desc</th>
             <th>Serial Number</th>
-            <th>Quanityt</th>
+            <th>Quanity</th>
             <th>Min Stock Level</th>
             <th>Max Stock Level</th>
             <th>Location</th>
@@ -27,9 +34,7 @@
     <?php
 
     // connection settings
-
-    include("includes/connectionSettings.php");
-
+    include "includes/connectionSettings.php";
 
     $sql = "CALL proc_getAllProducts()";
 
@@ -38,7 +43,7 @@
     // show results from procedure in a table
     if ($result->num_rows > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr><td>" . $row["Product ID"] . "</td><td>" . $row["categoryID_fk"] . "</td><td>"
+            echo "<tr><td>" . $row["Product ID"] . "</td><td>"
             . $row["categoryName"] . "</td><td>" . $row["productName"] . "</td><td>" .
             $row["productDescription"] . "</td><td>" . $row["productSerialNumber"] . 
             "</td><td>" . $row["quantity"] . "</td><td>" . $row["minimumStockLevel"] . 
@@ -55,5 +60,6 @@
     ?>
     </table>
 
+</div>
 </body>
 </html>

@@ -5,9 +5,5 @@ $dbUser = "root";
 $dbPassword = "";
 $dbName = "inventory_management_db";
 
-$conn = mysqli_connect($server, $dbUser, $dbPassword, $dbName);
+$conn = mysqli_connect($server, $dbUser, $dbPassword, $dbName) or die("Connection error");
 
-// if failure to connect to the database for some reason
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
