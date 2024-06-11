@@ -21,6 +21,29 @@ DELIMITER ;
 
 DELIMITER $$
 
+CREATE OR REPLACE PROCEDURE proc_addNewProduct(
+    IN categoryNameSearch VARCHAR(255),
+    IN newProductName VARCHAR(255),
+    IN newProdDescription VARCHAR(1000),
+    IN newProductSerialNumber VARCHAR(255),
+    IN storageLocationToAdd TEXT,
+    IN receivedQuantity INT,
+    IN possibleMinStockLevel INT,
+    IN possibleMaxStockLevel INT
+)
+BEGIN
+    SET @categoryIdSearch = (SELECT CategoryTable.categoryID FROM CategoryTable WHERE categoryName = categoryNameSearch); 
+    INSERT INTO ProductTable (categoryID_fk, productName, productDescription, productSerialNumber)
+        VALUES (@categoryIdSearch, newProductName, newProdDescription, newProductSerialNumber);
+    
+    SET @productIdSearch = LAST_INSERT_ID();
+    INSERT INTO StockTable (productID_fk, storageLocation, quantity, minimumStockLevel, maximumStockLevel)
+        VALUES (@productIdSearch, storageLocationToAdd, receivedQuantity, possibleMinStockLevel, possibleMaxStockLevel);
+END $$
+DELIMITER ;
+
+DELIMITER $$
+
 CREATE OR REPLACE PROCEDURE proc_editProductDetails(
     IN productIdtoFind INT,
     IN newCategoryFk INT,

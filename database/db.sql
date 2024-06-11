@@ -29,7 +29,7 @@ CREATE TABLE ProductTable (
     productName VARCHAR(255) NOT NULL,
     productDescription VARCHAR(1000) NOT NULL,
     productSerialNumber VARCHAR(255) NOT NULL,
-    PRIMARY KEY (productID),
+    CONSTRAINT pk_ProductTable PRIMARY KEY (productID, productName),
     FOREIGN KEY (categoryID_fk) REFERENCES CategoryTable(categoryID)
 );
 
@@ -60,16 +60,16 @@ CREATE TABLE UserTable (
 -- load data
 
 INSERT INTO CategoryTable (categoryName)
-VALUES ("category 1 description"),
-("category 2 description"),
-("category 3 description"),
-("category 4 description"),
-("category 5 description"),
-("category 6 description"),
-("category 7 description"),
-("category 8 description"),
-("category 9 description"),
-("category 10 description");
+VALUES ("category 1"),
+("category 2"),
+("category 3"),
+("category 4"),
+("category 5"),
+("category 6"),
+("category 7"),
+("category 8"),
+("category 9"),
+("category 10");
 
 
 INSERT INTO ProductTable (categoryID_fk, productName, productDescription, productSerialNumber)
