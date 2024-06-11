@@ -5,8 +5,7 @@ DELIMITER $$
 CREATE PROCEDURE IF NOT EXISTS proc_getAllProducts()
 BEGIN
     SELECT
-        ProductTable.productID, 
-        ProductTable.categoryID_fk, 
+        ProductTable.productID,
         CategoryTable.categoryName,
         ProductTable.productName,
         ProductTable.productDescription,

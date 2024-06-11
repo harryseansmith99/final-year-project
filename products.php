@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
     <link rel="stylesheet" type="text/css" href="assets/style.css?<?php echo time(); ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -12,53 +13,63 @@
     include "includes/sidebar.php"; 
     ?>
 
-    <div class="main">
+    <div class="container my-5">
 
-    <h1>get all products table test</h1>
+        <div class="main">
 
-    <table>
-        <tr>
-            <th>Product ID</th>
-            <th>Category Name</th>
-            <th>Product Name</th>
-            <th>Product Desc</th>
-            <th>Serial Number</th>
-            <th>Quanity</th>
-            <th>Min Stock Level</th>
-            <th>Max Stock Level</th>
-            <th>Location</th>
-            <th>Location Address</th>
-        </tr>
+        <h1>get all products table test</h1>
 
-    <?php
+        <table class="table">
+            <tr>
+                <th>Product ID</th>
+                <th>Category Name</th>
+                <th>Product Name</th>
+                <th>Product Desc</th>
+                <th>Serial Number</th>
+                <th>Quanity</th>
+                <th>Min Stock Level</th>
+                <th>Max Stock Level</th>
+                <th>Location</th>
+                <th>Location Address</th>
+            </tr>
 
-    // connection settings
-    include "includes/connectionSettings.php";
+        <?php
 
-    $sql = "CALL proc_getAllProducts()";
+        // connection settings
+        include "includes/connectionSettings.php";
 
-    $result = mysqli_query($conn, $sql);
+        $sql = "CALL proc_getAllProducts()";
 
-    // show results from procedure in a table
-    if ($result->num_rows > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr><td>" . $row["Product ID"] . "</td><td>"
-            . $row["categoryName"] . "</td><td>" . $row["productName"] . "</td><td>" .
-            $row["productDescription"] . "</td><td>" . $row["productSerialNumber"] . 
-            "</td><td>" . $row["quantity"] . "</td><td>" . $row["minimumStockLevel"] . 
-            "</td><td>" . $row["maximumStockLevel"] . "</td><td>" . $row["locationName"] . 
-            "</td><td>" . $row["locationAddress"] . "</td></tr>";
+        $result = mysqli_query($conn, $sql);
+
+        // show results from procedure in a table
+        if ($result->num_rows > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "
+                <tr>
+                    <td>$row[productID]</td>
+                    <td>$row[categoryName]</td>
+                    <td>$row[productName]</td>
+                    <td>$row[productDescription]</td>
+                    <td>$row[productSerialNumber]</td>
+                    <td>$row[quantity]</td>
+                    <td>$row[minimumStockLevel]</td>
+                    <td>$row[maximumStockLevel]</td>
+                    <td>$row[locationName]</td>
+                    <td>$row[locationAdress]</td>
+                ";
+            }
+            echo "</table>";
         }
-        echo "</table>";
-    }
-    else {
-        echo "no results";
-    }
+        else {
+            echo "no results";
+        }
 
-    $conn->close();
-    ?>
-    </table>
+        $conn->close();
+        ?>
+        </table>
 
-</div>
+        </div>
+    </div>
 </body>
 </html>
