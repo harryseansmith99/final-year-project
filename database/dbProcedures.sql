@@ -13,7 +13,7 @@ BEGIN
         StockTable.quantity,
         StockTable.minimumStockLevel,
         StockTable.maximumStockLevel,
-        LocationTable.locationName,
+        LocationTable.locationName
     FROM ProductTable
         JOIN CategoryTable ON ProductTable.categoryID_fk = CategoryTable.categoryID
         JOIN StockTable ON StockTable.productID_fk = ProductTable.productID
@@ -21,35 +21,25 @@ BEGIN
 END $$
 DELIMITER ;
 
-CREATE PROCEDURE IF NOT EXISTS proc_editExistingProduct(
-    IN productIdtoFind VARCHAR(10),
-    IN newProductName VARCHAR(255),
-    IN newProductDescr(1000),
-    IN newProductSerial(255)
-)
-BEGIN
-    UPDATE ProductTable SET ProductTable.productName = newProductName,
-    ProductTable.productDescription = newProductDescr,
-    ProductTable.productSerialNumber = newProductSerial
-    WHERE ProductTable.productID = productIdtoFind;
-END $$
+-- DELIMITER $$
+
+-- CREATE PROCEDURE IF NOT EXISTS proc_editExistingProduct(
+--     IN productIdtoFind INT,
+--     IN newProductName VARCHAR(255),
+--     IN newProductDescr VARCHAR(1000),
+--     IN newProductSerial VARCHAR(255)
+-- )
+-- BEGIN
+--     UPDATE ProductTable SET ProductTable.productName = newProductName,
+--     ProductTable.productDescription = newProductDescr,
+--     ProductTable.productSerialNumber = newProductSerial
+--     WHERE ProductTable.productID = productIdtoFind;
+-- END $$
+-- DELIMITER ;
+
+
+
 DELIMITER $$
-
-CREATE PROCEDURE prod_addNewProduct(
-    IN newProductID VARCHAR(10),
-    IN categoryName,
-    IN newProductName,
-    IN newProductDescr,
-    IN newProductSerial,
-    IN possibleQuantity,
-    IN possibleMinStockLevel,
-    IN possibleMaxStockLevel,
-    IN possibleLocationName
-)
-BEGIN
-    INSERT INTO 
-
-
 
 
 CREATE PROCEDURE IF NOT EXISTS proc_getAllCategories() 

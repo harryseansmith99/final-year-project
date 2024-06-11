@@ -20,18 +20,19 @@
         <h1>get all products table test</h1>
 
         <table class="table">
-            <tr>
-                <th>Product ID</th>
-                <th>Category Name</th>
-                <th>Product Name</th>
-                <th>Product Desc</th>
-                <th>Serial Number</th>
-                <th>Quanity</th>
-                <th>Min Stock Level</th>
-                <th>Max Stock Level</th>
-                <th>Location</th>
-            </tr>
-
+            <thead>
+                <tr class="fs-9">
+                    <th>Product ID</th>
+                    <th>Category Name</th>
+                    <th>Product Name</th>
+                    <th>Product Desc</th>
+                    <th>Serial Number</th>
+                    <th>Quanity</th>
+                    <th>Min Stock Level</th>
+                    <th>Max Stock Level</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
         <?php
 
         // connection settings
