@@ -10,10 +10,10 @@ BEGIN
         ProductTable.productName,
         ProductTable.productDescription,
         ProductTable.productSerialNumber,
+        StockTable.storageLocation,
         StockTable.quantity,
         StockTable.minimumStockLevel,
-        StockTable.maximumStockLevel,
-        LocationTable.locationName
+        StockTable.maximumStockLevel
     FROM ProductTable
         JOIN CategoryTable ON ProductTable.categoryID_fk = CategoryTable.categoryID
         JOIN StockTable ON StockTable.productID_fk = ProductTable.productID
