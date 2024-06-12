@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
-    <link rel="stylesheet" type="text/css" href="assets/style.css?<?php echo time(); ?>">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?<?php echo time(); ?>">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
 
         <div class="main">
 
-            <h1>All Current Products</h1>
+            <h1 id="my_header">All Current Products</h1>
             <br><br>
             
             <a class="btn btn-primary btn-lg mx-5" href="" role="button">Add New Product</a>

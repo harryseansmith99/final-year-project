@@ -108,7 +108,8 @@ DELIMITER ;
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_getAllCategories() 
 BEGIN
-    SELECT * FROM CategoryTable;
+    SELECT * FROM CategoryTable
+    ORDER BY CategoryTable.categoryID ASC;
 END $$
 DELIMITER ;
 
