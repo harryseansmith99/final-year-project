@@ -130,6 +130,17 @@ DELIMITER ;
 DELIMITER $$
 
 
+DELIMITER $$
+
+CREATE OR REPLACE PROCEDURE proc_deleteCategoryByName(
+    IN categoryNameSearch VARCHAR(255)
+) 
+BEGIN
+    DELETE FROM CategoryTable WHERE CategoryTable.categoryName = categoryNameSearch;
+END $$
+DELIMITER ;
+
+DELIMITER $$
 
 
 CREATE OR REPLACE PROCEDURE proc_getAllUsers()

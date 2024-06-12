@@ -30,7 +30,7 @@ CREATE TABLE ProductTable (
     productDescription VARCHAR(1000) NOT NULL,
     productSerialNumber VARCHAR(255) NOT NULL,
     CONSTRAINT pk_ProductTable PRIMARY KEY (productID, productName),
-    FOREIGN KEY (categoryID_fk) REFERENCES CategoryTable(categoryID)
+    FOREIGN KEY (categoryID_fk) REFERENCES CategoryTable(categoryID) ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS StockTable;
