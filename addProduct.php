@@ -11,6 +11,7 @@
     
     <?php 
     include "includes/sidebar.php";
+    include "includes/postNewProduct.php";
     ?>
 
     <div class="container-fluid my-5">
@@ -18,6 +19,18 @@
         <div class="main">
 
             <h1>Provide Details For New Product</h1>
+
+                <?php
+                if (!empty($errorMessage)) {
+                    echo "
+                    <div class='alert' alert-warning alert-dissmissable fade show' role='alert'>
+                        <strong>$errorMessage</strong>
+                        <button type='button' class='btn-close data-bs-dismiss='alert'></button>
+                    </div>
+                    ";
+                }
+                ?>
+
                 <br><br>
                 <form method="post">
                     <div class="row mb-3">
