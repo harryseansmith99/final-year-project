@@ -80,7 +80,7 @@ DELIMITER ;
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_editProductDetails(
     IN productIdtoFind INT,
-    IN newCategoryfk INT,
+    IN categoryNameSearch VARCHAR(255),
     IN newProductName VARCHAR(255),
     IN newProductDescr VARCHAR(1000),
     IN newProductSerial VARCHAR(255),
@@ -117,7 +117,7 @@ DELIMITER ;
 
 
 DELIMITER $$
-CREATE OR REPLACE PROCEDURE proc_addCategory(
+CREATE OR REPLACE PROCEDURE proc_addNewCategory(
     IN newCategoryName VARCHAR(255)) 
 BEGIN
     INSERT INTO CategoryTable (categoryName) VALUES (newCategoryName);

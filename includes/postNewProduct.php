@@ -1,9 +1,6 @@
 <?php
 
-
 include "includes/connectionSettings.php";
-
-
 
 // init empty variables as place holders
 $categorySelect = "";
@@ -14,15 +11,6 @@ $storageLocationToAdd = "";
 $receivedQuantity = "";
 $possibleMinumumQuantity = "";
 $possibleMaximumQuantity = "";
-
-// print_r($_POST);
-
-
-// // vars that need to be casted to int from above, as post creates a string
-// $possibleMinumumQuantityInt = 0;
-// $possibleMinumumQuantityInt = 0;
-// $possibleMaximumQuantityInt = 0;
-
 
 
 $errorMessage = "";
@@ -37,11 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $receivedQuantityInt = $_POST["receivedQuantity"];
     $possibleMinumumQuantityInt = $_POST["possibleMinumumQuantity"];
     $possibleMaximumQuantityInt = $_POST["possibleMaximumQuantity"];
-
-    // cast these to ints, might not be needed
-    // $receivedQuantityInt = (int)$_POST[$receivedQuantity];
-    // $possibleMinumumQuantityInt = (int)$_POST[$possibleMinumumQuantity];
-    // $possibleMaximumQuantityInt = (int)$_POST[$possibleMaximumQuantity];
 
     // do while false allows this to break out after finished
     do {

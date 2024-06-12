@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,12 +18,24 @@
 
         <div class="main">
 
-            <h1>Edit Product Details</h1>
+            <h1>Provide Details For New Product</h1>
+
+                <?php
+                if (!empty($errorMessage)) {
+                    echo "
+                    <div class='alert alert-warning alert-dismissable fade show' role='alert'>
+                        <strong>$errorMessage</strong>
+                        <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+                    </div>
+                    ";
+                }
+                ?>
 
                 <br><br>
-                <form action="editProduct.php" method="post">
+                <form method="post">
+                    
                     <div class="row mb-3">
-                        <label>Cateogry</label>
+                        <label >Cateogry</label>
                         <select name="categorySelect" class="form-select form-select-md">
                             <option value="<?php echo $categorySelect;?>">Select Category</option>
                             <?php include "includes/getCategories.php"; ?>
