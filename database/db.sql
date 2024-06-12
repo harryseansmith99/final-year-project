@@ -42,7 +42,7 @@ CREATE TABLE StockTable (
     minimumStockLevel INT,
     maximumStockLevel INT,
     PRIMARY KEY (stockID),
-    FOREIGN KEY (productID_fk) REFERENCES ProductTable(productID)
+    FOREIGN KEY (productID_fk) REFERENCES ProductTable(productID) ON DELETE CASCADE
 );
 
 DROP TABLE IF EXISTS UserTable;

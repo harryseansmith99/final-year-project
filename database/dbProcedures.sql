@@ -67,6 +67,17 @@ DELIMITER ;
 
 DELIMITER $$
 
+CREATE OR REPLACE PROCEDURE proc_deleteProductById(
+    IN productIdSearch INT
+)
+BEGIN
+    DELETE FROM ProductTable WHERE ProductTable.productID = productIdSearch;
+END $$
+DELIMITER ;
+
+
+DELIMITER $$
+
 CREATE OR REPLACE PROCEDURE proc_editProductDetails(
     IN productIdtoFind INT,
     IN newCategoryFk INT,
