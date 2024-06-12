@@ -21,8 +21,8 @@
                 <br><br>
                 <form method="post">
                     <div class="row mb-3">
-                        <select name="select_box" class="form-select form-select-md">
-                            <option value="<?php echo $select_box;?>">Select Category</option>
+                        <select name="categorySelect" class="form-select form-select-md">
+                            <option value="<?php echo $categorySelect;?>">Select Category</option>
                             <?php include "includes/getCategories.php"; ?>
                         </select>
                     </div>
