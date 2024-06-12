@@ -20,6 +20,29 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
+CREATE OR REPLACE PROCEDURE proc_findProductById(
+    IN productIdSearch INT
+)
+BEGIN
+    SELECT
+        ProductTable.productID,
+        CategoryTable.categoryName,
+        ProductTable.productName,
+        ProductTable.productDescription,
+        ProductTable.productSerialNumber,
+        StockTable.storageLocation,
+        StockTable.quantity,
+        StockTable.minimumStockLevel,
+        StockTable.maximumStockLevel
+    FROM ProductTable 
+        JOIN CategoryTable ON ProductTable.categoryID_fk = CategoryTable.categoryID
+        JOIN StockTable ON StockTable.productID_fk = ProductTable.productID
+    WHERE ProductTable.productID = productIdSearch;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+
 
 CREATE OR REPLACE PROCEDURE proc_addNewProduct(
     IN categoryNameSearch VARCHAR(255),
