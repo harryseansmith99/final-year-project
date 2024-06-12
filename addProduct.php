@@ -1,20 +1,24 @@
+<?php 
+include "includes/postNewProduct.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product</title>
-    <link rel="stylesheet" type="text/css" href="assets/style.css?<?php echo time(); ?>">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css?<?php echo time(); ?>">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css?<?php echo time(); ?>">
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 </head>
 <body>
     
     <?php 
     include "includes/sidebar.php";
-    include "includes/postNewProduct.php";
     ?>
 
-    <div class="container-fluid my-5">
+    <div class="container my-5">
 
         <div class="main">
 
@@ -23,17 +27,18 @@
                 <?php
                 if (!empty($errorMessage)) {
                     echo "
-                    <div class='alert' alert-warning alert-dissmissable fade show' role='alert'>
+                    <div class='alert alert-warning alert-dismissable fade show' role='alert'>
                         <strong>$errorMessage</strong>
-                        <button type='button' class='btn-close data-bs-dismiss='alert'></button>
+                        <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
                     </div>
                     ";
                 }
                 ?>
 
                 <br><br>
-                <form method="post">
+                <form action="addProduct.php" method="post">
                     <div class="row mb-3">
+                        <label >Cateogry</label>
                         <select name="categorySelect" class="form-select form-select-md">
                             <option value="<?php echo $categorySelect;?>">Select Category</option>
                             <?php include "includes/getCategories.php"; ?>
@@ -89,6 +94,20 @@
                         </div>
                     </div>
                     <br><br>
+                    <?php 
+                    if (!empty($successMessage)) {
+                        echo "
+                        <div class='row mb-3'>
+                            <div class='offset-sm-3 col-sm-6'>
+                                <div class='alert alert-success alert-dismissable fade show' role='alert'>
+                                    <strong>$successMessage</strong>
+                                    <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+                                </div>
+                            </div>
+                        </div>
+                        ";
+                    }
+                    ?>
                     <div class="row mb-3">
                         <div class="offset-sm-3 col-sm-3 d-grid">
                             <button type="submit" class="btn btn-outline-primary">Submit</button>
@@ -100,6 +119,5 @@
                 </form>
             </div>
         </div>
-    </div>
 </body>
 </html>
