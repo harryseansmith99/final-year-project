@@ -129,9 +129,20 @@ DELIMITER ;
 
 DELIMITER $$
 
+CREATE OR REPLACE PROCEDURE proc_editCategoryByName(
+    IN categoryNameSearch VARCHAR (255),
+    IN newCategoryName VARCHAR(255)
+) 
+BEGIN
+    UPDATE CategoryTable SET CategoryTable.categoryName = newCategoryName
+    WHERE CategoryTable.categoryName = categoryNameSearch;
+END $$
+DELIMITER ;
+
 
 DELIMITER $$
 
+-- will delete all products associated with this category, be warned
 CREATE OR REPLACE PROCEDURE proc_deleteCategoryByName(
     IN categoryNameSearch VARCHAR(255)
 ) 
