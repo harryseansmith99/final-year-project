@@ -20,7 +20,7 @@
             <h1 id="my_header">All Current Products</h1>
             <br><br>
             
-            <a class="btn btn-primary btn-lg mx-5" href="" role="button">Add New Product</a>
+            <a class="btn btn-primary btn-lg mx-5" href="addProduct.php" role="button">Add New Product</a>
             <a class="btn btn-primary btn-lg mx-5" href="" role="button">Add New Category</a>
             <br><br><br>
 

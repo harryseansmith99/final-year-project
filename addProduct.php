@@ -8,12 +8,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 <body>
+    <?php 
+    include "includes/sidebar.php";
+    ?>
     <div class="container my-5">
-        <h1>Provide Details For New Product>
+        <h1>Provide Details For New Product</h1>
         <br><br>
         <form method="post">
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Select Category</label>
+                <select name="select_box" class="form-select" id="select_box">
+                    <option value="">Select Category</option>
+                    <?php include "includes/getCategories.php"; ?>
+                </select>
             </div>
         </form>
     </div>
