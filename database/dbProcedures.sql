@@ -19,10 +19,11 @@ BEGIN
 END $$
 DELIMITER ;
 
+
+
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_findProductById(
-    IN productIdSearch INT
-)
+    IN productIdSearch INT)
 BEGIN
     SELECT
         ProductTable.productID,
@@ -41,9 +42,9 @@ BEGIN
 END $$
 DELIMITER ;
 
+
+
 DELIMITER $$
-
-
 CREATE OR REPLACE PROCEDURE proc_addNewProduct(
     IN categoryNameSearch VARCHAR(255),
     IN newProductName VARCHAR(255),
@@ -52,8 +53,7 @@ CREATE OR REPLACE PROCEDURE proc_addNewProduct(
     IN storageLocationToAdd TEXT,
     IN receivedQuantity INT,
     IN possibleMinStockLevel INT,
-    IN possibleMaxStockLevel INT
-)
+    IN possibleMaxStockLevel INT)
 BEGIN
     SET @categoryIdSearch = (SELECT CategoryTable.categoryID FROM CategoryTable WHERE categoryName = categoryNameSearch); 
     INSERT INTO ProductTable (categoryID_fk, productName, productDescription, productSerialNumber)
@@ -65,19 +65,19 @@ BEGIN
 END $$
 DELIMITER ;
 
-DELIMITER $$
 
+
+DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_deleteProductById(
-    IN productIdSearch INT
-)
+    IN productIdSearch INT)
 BEGIN
     DELETE FROM ProductTable WHERE ProductTable.productID = productIdSearch;
 END $$
 DELIMITER ;
 
 
-DELIMITER $$
 
+DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_editProductDetails(
     IN productIdtoFind INT,
     IN newCategoryFk INT,
@@ -106,29 +106,25 @@ DELIMITER ;
 
 
 DELIMITER $$
-
-
 CREATE OR REPLACE PROCEDURE proc_getAllCategories() 
 BEGIN
     SELECT * FROM CategoryTable;
 END $$
 DELIMITER ;
 
-DELIMITER $$
 
 
 DELIMITER $$
-
 CREATE OR REPLACE PROCEDURE proc_addCategory(
-    IN newCategoryName VARCHAR(255)
-) 
+    IN newCategoryName VARCHAR(255)) 
 BEGIN
     INSERT INTO CategoryTable (categoryName) VALUES (newCategoryName);
 END $$
 DELIMITER ;
 
-DELIMITER $$
 
+
+DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_editCategoryByName(
     IN categoryNameSearch VARCHAR (255),
     IN newCategoryName VARCHAR(255)
@@ -140,20 +136,18 @@ END $$
 DELIMITER ;
 
 
-DELIMITER $$
 
--- will delete all products associated with this category, be warned
+DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_deleteCategoryByName(
-    IN categoryNameSearch VARCHAR(255)
-) 
+    IN categoryNameSearch VARCHAR(255)) 
 BEGIN
     DELETE FROM CategoryTable WHERE CategoryTable.categoryName = categoryNameSearch;
 END $$
 DELIMITER ;
 
+
+
 DELIMITER $$
-
-
 CREATE OR REPLACE PROCEDURE proc_getAllUsers()
 BEGIN
     SELECT
@@ -165,8 +159,9 @@ BEGIN
 END $$
 DELIMITER ;
 
-DELIMITER $$
 
+
+DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_getAllAdmins()
 BEGIN
     SELECT
@@ -179,8 +174,9 @@ BEGIN
 END $$
 DELIMITER ;
 
-DELIMITER $$
 
+
+DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_getAllStandardStaff()
 BEGIN
     SELECT
@@ -193,27 +189,33 @@ BEGIN
 END $$
 DELIMITER ;
 
-DELIMITER $$
 
-CREATE OR REPLACE PROCEDURE proc_getUserByID(IN userIdSearch INT)
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE proc_getUserByID(
+    IN userIdSearch INT)
 BEGIN
     SELECT * FROM UserTable
     WHERE UserTable.userID = userIdSearch;
 END $$
 DELIMITER ;
 
-DELIMITER $$
 
-CREATE OR REPLACE PROCEDURE proc_getUserByEmail(IN userEmailSearch VARCHAR(255))
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE proc_getUserByEmail(
+    IN userEmailSearch VARCHAR(255))
 BEGIN
     SELECT * FROM UserTable
     WHERE UserTable.email = userEmailSearch;
 END $$
 DELIMITER ;
 
-DELIMITER $$
 
-CREATE OR REPLACE PROCEDURE proc_getUserPassword(IN userPasswordSearch VARCHAR(255))
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE proc_getUserPassword(
+    IN userPasswordSearch VARCHAR(255))
 BEGIN
     SELECT * FROM UserTable
     WHERE UserTable.userPassword = userPasswordSearch;
