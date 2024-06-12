@@ -26,7 +26,7 @@ $possibleMaximumQuantity = "";
 
 
 $errorMessage = "";
-$successMessage = "";
+$successMessageProduct = "Successfully Added Product";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $categorySelect = $_POST["categorySelect"];

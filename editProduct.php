@@ -1,6 +1,4 @@
-<?php 
-include "includes/postNewProduct.php";
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,23 +20,12 @@ include "includes/postNewProduct.php";
 
         <div class="main">
 
-            <h1>Provide Details For New Product</h1>
-
-                <?php
-                if (!empty($errorMessage)) {
-                    echo "
-                    <div class='alert alert-warning alert-dismissable fade show' role='alert'>
-                        <strong>$errorMessage</strong>
-                        <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
-                    </div>
-                    ";
-                }
-                ?>
+            <h1>Edit Product Details</h1>
 
                 <br><br>
-                <form action="addProduct.php" method="post">
+                <form action="editProduct.php" method="post">
                     <div class="row mb-3">
-                        <label >Cateogry</label>
+                        <label>Cateogry</label>
                         <select name="categorySelect" class="form-select form-select-md">
                             <option value="<?php echo $categorySelect;?>">Select Category</option>
                             <?php include "includes/getCategories.php"; ?>

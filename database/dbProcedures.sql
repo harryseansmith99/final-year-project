@@ -80,15 +80,16 @@ DELIMITER ;
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_editProductDetails(
     IN productIdtoFind INT,
-    IN newCategoryFk INT,
+    IN newCategoryfk INT,
     IN newProductName VARCHAR(255),
     IN newProductDescr VARCHAR(1000),
     IN newProductSerial VARCHAR(255),
     IN newMinStockLevel INT,
     IN newMaxStockLevel INT)
 BEGIN
+    SET @categoryIdSearch = (SELECT CategoryTable.categoryID FROM CategoryTable WHERE categoryName = categoryNameSearch); 
     UPDATE ProductTable SET 
-        ProductTable.categoryID_fk = newCategoryFk,
+        ProductTable.categoryID_fk = @categoryIdSearch,
         ProductTable.productName = newProductName,
         ProductTable.productDescription = newProductDescr,
         ProductTable.productSerialNumber = newProductSerial
