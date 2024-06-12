@@ -116,6 +116,22 @@ DELIMITER ;
 
 DELIMITER $$
 
+
+DELIMITER $$
+
+CREATE OR REPLACE PROCEDURE proc_addCategory(
+    IN newCategoryName VARCHAR(255)
+) 
+BEGIN
+    INSERT INTO CategoryTable (categoryName) VALUES (newCategoryName);
+END $$
+DELIMITER ;
+
+DELIMITER $$
+
+
+
+
 CREATE OR REPLACE PROCEDURE proc_getAllUsers()
 BEGIN
     SELECT
