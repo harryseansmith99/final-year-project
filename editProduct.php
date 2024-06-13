@@ -22,7 +22,7 @@ include "includes/postEditProduct.php";
 
         <div class="main">
 
-            <h1>Provide Details For New Product</h1>
+            <h1>Provide Altered Details For Product</h1>
 
                 <?php
                 if (!empty($errorMessage)) {
@@ -34,7 +34,7 @@ include "includes/postEditProduct.php";
                     ";
                 }
                 ?>
-                <form action="addProduct.php" method="post">
+                <form action="editProduct.php" method="post">
                     <div class="row mb-3">
                         <label >Cateogry</label>
                         <select name="categorySelect" class="form-select form-select-md">

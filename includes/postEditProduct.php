@@ -67,6 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $errorMessage = "Query is not valid: " . $conn->error;
             break;
         }
+        else {
+            echo "                                          updated successfully";
+            // $successMessageProduct = "successfully added product";
+        }
         $conn->close();
 
     } while(false);
