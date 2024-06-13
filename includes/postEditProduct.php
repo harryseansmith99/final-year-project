@@ -2,8 +2,7 @@
 
 include "includes/connectionSettings.php";
 
-// init empty variables as place holders
-
+// init empty variables as placeholders
 $categorySelect = "";
 $newProductName = "";
 $newProductDescription = "";
@@ -12,13 +11,13 @@ $storageLocationToAdd = "";
 $possibleMinimumQuantity = "";
 $possibleMaximumQuantity = "";
 
-
 $errorMessage = "";
 $successMessageProduct = "";
 
-$productID = $_GET["editProductId"];
+$productID = $_GET["productID"]; // Retrieve productID from GET request
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
     $categorySelect = $_POST["categorySelect"];
     $newProductName = $_POST["newProductName"];
     $newProductDescription = $_POST["newProductDescription"];
@@ -48,11 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $possibleMaximumQuantity = null;
         }
 
-
         // prepare and bind
         $sql = $conn->prepare("CALL proc_editProduct(?, ?, ?, ?, ?, ?, ?, ?)");
         $sql->bind_param(
-            "i,s,s,s,s,s,i,i", // order of data types
+            "isssssii", // order of data types
             $productID, 
             $categorySelect, 
             $newProductName, 
@@ -63,16 +61,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $possibleMaximumQuantity
         );
 
-        if (! $sql->execute()) {
+        if (!$sql->execute()) {
             $errorMessage = "Query is not valid: " . $conn->error;
             break;
-        }
-        else {
-            // $successMessageProduct = "Successfully Edited Product";
-            echo "updated";
+        } else {
+            $successMessageProduct = "Successfully Edited Product";
+            // Redirect after successful update
+            header("location: products.php");
+            exit;
         }
 
     } while(false);
-} 
+}
 
-?>
+if (!empty($errorMessage)) {
+    echo "<div class='alert alert-danger'>$errorMessage</div>";
+}
