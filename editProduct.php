@@ -1,5 +1,5 @@
 <?php 
-// "includes/postEditProduct.php";
+include "includes/postEditProduct.php";
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Product</title>
+    <title>Add Product</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css?<?php echo time(); ?>">
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
@@ -34,8 +34,7 @@
                     ";
                 }
                 ?>
-                <form action="editProduct.php" method="post">
-                    <input type="hidden" name="productID" value="<?php echo $productID;?>">
+                <form action="addProduct.php" method="post">
                     <div class="row mb-3">
                         <label >Cateogry</label>
                         <select name="categorySelect" class="form-select form-select-md">
@@ -87,7 +86,7 @@
                     </div>
                     <div class="row mb-3">
                         <div class="offset-sm-3 col-sm-3 d-grid">
-                            <button type="submit" class="btn btn-outline-primary">Submit</button>
+                            <button type="submit" class="btn btn-outline-primary">Update</button>
                         </div>
                         <div class="col-sm-3 d-grid">
                             <a class="btn btn-outline-danger" href="products.php" role="button">Cancel</a>
