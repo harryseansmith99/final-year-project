@@ -9,7 +9,6 @@ $newProductName = "";
 $newProductDescription = "";
 $newSerialNumber = "";
 $storageLocationToAdd = "";
-$receivedQuantity = "";
 $possibleMinimumQuantity = "";
 $possibleMaximumQuantity = "";
 

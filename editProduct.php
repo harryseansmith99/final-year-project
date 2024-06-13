@@ -68,13 +68,6 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Received Quanity</label>
-                        <br>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="receivedQuantity" value="<?php echo $receivedQuantity;?>">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
                         <label class="col-sm col-form-label">Minimum Quantity</label>
                         <br>
                         <div class="col-sm-6">
