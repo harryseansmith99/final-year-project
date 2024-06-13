@@ -4,6 +4,7 @@ include "includes/connectionSettings.php";
 
 // init empty variables as place holders
 
+$productID = "";
 $categorySelect = "";
 $newProductName = "";
 $newProductDescription = "";
@@ -16,25 +17,46 @@ $possibleMaximumQuantity = "";
 $errorMessage = "";
 $successMessageProduct = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// get the id of the product when you click the edit product button
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+
+    // if the product does not exist, redirect to products page 
+    if (!isset($_GET["productID"])) {
+        header("location: products.php");
+        exit;
+    }
+    $productID = $_GET["productID"];
+    $sql = $conn->prepare("CALL proc_findProductById(?)");
+    $sql->bind_param("i", $productID);
+
+    $categorySelect = $row["categoryName"];
+    $newProductName = $row["productName"];
+    $newProductDescription = $row["productDescription"];
+    $newSerialNumber = $row["productSerialNumber"];
+    $storageLocationToAdd = $row["storageLocation"];
+    $possibleMinimumQuantity = $row["minimumStockLevel"];
+    $possibleMaximumQuantity = $row["maximumStockLevel"];
+}
+
+else {
+    // this means the POST method was used, so we are updating with inputs from form
+
+    $productID = $_POST["productID"];
     $categorySelect = $_POST["categorySelect"];
     $newProductName = $_POST["newProductName"];
     $newProductDescription = $_POST["newProductDescription"];
     $newSerialNumber = $_POST["newSerialNumber"];
     $storageLocationToAdd = $_POST["storageLocationToAdd"];
-    $receivedQuantityInt = $_POST["receivedQuantity"];
     $possibleMinimumQuantity = (int)$_POST["possibleMinimumQuantity"];
     $possibleMaximumQuantity = (int)$_POST["possibleMaximumQuantity"];
 
-    // do while false allows this to break out after finished
     do {
         if (
         empty($categorySelect)        ||
         empty($newProductName)        || 
         empty($newProductDescription) ||
         empty($newSerialNumber)       || 
-        empty($storageLocationToAdd)  ||
-        empty($receivedQuantityInt)) {
+        empty($storageLocationToAdd)) {
             $errorMessage = "All fields except minimum and maximum storage are required";
             break;
         }
@@ -48,18 +70,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $possibleMaximumQuantity = null;
         }
 
-
         // prepare and bind
-        $sql = $conn->prepare("CALL proc_addNewProduct(?, ?, ?, ?, ?, ?, ?, ?)");
+        $sql = $conn->prepare("CALL proc_editProduct(?, ?, ?, ?, ?, ?, ?, ?)");
         $sql->bind_param(
-            "sssssiii", // order of data types
-            $categorySelect, 
-            $newProductName, 
-            $newProductDescription, 
-            $newSerialNumber, 
-            $storageLocationToAdd, 
-            $receivedQuantityInt, 
-            $possibleMinimumQuantity, 
+            //"i,s,s,s,s,s,i,i", // order of data types
+            $productID,
+            $categorySelect,
+            $newProductName,
+            $newProductDescription,
+            $newSerialNumber,
+            $storageLocationToAdd,
+            $possibleMinimumQuantity,
             $possibleMaximumQuantity
         );
 
@@ -71,7 +92,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $successMessageProduct = "successfully added product";
         }
 
-    } while(false);
-} 
+        // exit back to products page on success
+        header("location: products.php");
 
-?>
+    }
+    while(false);
+    
+}

@@ -1,9 +1,13 @@
+<?php 
+include "includes/postEditProduct.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
+    <title>Edit Product</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css?<?php echo time(); ?>">
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
@@ -30,8 +34,8 @@
                     ";
                 }
                 ?>
-                <form action="addProduct.php" method="post">
-                    <input type="hidden" value="<?php echo $productID;?>">
+                <form action="editProduct.php" method="post">
+                    <input type="hidden" name="productID" id="productID" value="<?php echo $productID;?>">
                     <div class="row mb-3">
                         <label >Cateogry</label>
                         <select name="categorySelect" class="form-select form-select-md">
