@@ -56,6 +56,7 @@
                         // to edit or delete the product on that row 
                         echo "
                         <tr>
+                            <td>$row[productID]</td>
                             <td>$row[productName]</td>
                             <td>$row[productDescription]</td>
                             <td>$row[categoryName]</td>

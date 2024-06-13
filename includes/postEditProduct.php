@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // if these 2 fields are empty when form is submitted, they are null
         if (!isset($possibleMinimumQuantity)) {
-            $possibleMinumumQuantity = null;
+            $possibleMinimumQuantity = null;
         }
 
         if (!isset($possibleMaximumQuantity)) {
@@ -68,10 +68,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         }
         else {
-            echo "                                          updated successfully";
-            // $successMessageProduct = "successfully added product";
+            // $successMessageProduct = "Successfully Edited Product";
+            echo "updated";
         }
-        $conn->close();
 
     } while(false);
 } 

@@ -15,7 +15,8 @@ BEGIN
         StockTable.maximumStockLevel
     FROM ProductTable
         JOIN CategoryTable ON ProductTable.categoryID_fk = CategoryTable.categoryID
-        JOIN StockTable ON StockTable.productID_fk = ProductTable.productID;
+        JOIN StockTable ON StockTable.productID_fk = ProductTable.productID
+    ORDER BY ProductTable.productID ASC;
 END $$
 DELIMITER ;
 
