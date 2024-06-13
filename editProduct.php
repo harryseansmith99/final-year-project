@@ -33,6 +33,8 @@
 
                 <br><br>
                 <form method="post">
+                    <!-- how we get the id of the product when we select edit button -->
+                    <input type="hidden" value="<?php echo $productID;?>">
                     
                     <div class="row mb-3">
                         <label >Cateogry</label>

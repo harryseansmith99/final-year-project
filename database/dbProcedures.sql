@@ -84,6 +84,7 @@ CREATE OR REPLACE PROCEDURE proc_editProductDetails(
     IN newProductName VARCHAR(255),
     IN newProductDescr VARCHAR(1000),
     IN newProductSerial VARCHAR(255),
+    IN newLocation TEXT,
     IN newMinStockLevel INT,
     IN newMaxStockLevel INT)
 BEGIN
