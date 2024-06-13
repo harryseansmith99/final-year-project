@@ -3,31 +3,29 @@
 include "includes/connectionSettings.php";
 
 // init empty variables as place holders
-$productID = "";
+
 $categorySelect = "";
 $newProductName = "";
 $newProductDescription = "";
 $newSerialNumber = "";
 $storageLocationToAdd = "";
-$possibleMinumumQuantity = "";
+$receivedQuantity = "";
+$possibleMinimumQuantity = "";
 $possibleMaximumQuantity = "";
 
 
 $errorMessage = "";
 $successMessageProduct = "";
 
-// when you click the edit button, it gets the id of the product,
-// this part will fill in the form with the current details of the 
-// product so you know which ones to edit
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $categorySelect = $_POST["categorySelect"];
     $newProductName = $_POST["newProductName"];
     $newProductDescription = $_POST["newProductDescription"];
     $newSerialNumber = $_POST["newSerialNumber"];
     $storageLocationToAdd = $_POST["storageLocationToAdd"];
     $receivedQuantityInt = $_POST["receivedQuantity"];
-    $possibleMinumumQuantityInt = $_POST["possibleMinumumQuantity"];
-    $possibleMaximumQuantityInt = $_POST["possibleMaximumQuantity"];
+    $possibleMinimumQuantity = (int)$_POST["possibleMinimumQuantity"];
+    $possibleMaximumQuantity = (int)$_POST["possibleMaximumQuantity"];
 
     // do while false allows this to break out after finished
     do {
@@ -42,12 +40,13 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             break;
         }
 
-        if (empty($possibleMinumumQuantityInt)) {
-            $possibleMinumumQuantityInt = "0";
+        // if these 2 fields are empty when form is submitted, they are null
+        if (!isset($possibleMinimumQuantity)) {
+            $possibleMinumumQuantity = null;
         }
 
-        if (empty($possibleMaximumQuantityInt)) {
-            $possibleMaximumQuantityInt = "0";
+        if (!isset($possibleMaximumQuantity)) {
+            $possibleMaximumQuantity = null;
         }
 
 
@@ -61,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $newSerialNumber, 
             $storageLocationToAdd, 
             $receivedQuantityInt, 
-            $possibleMinumumQuantity, 
+            $possibleMinimumQuantity, 
             $possibleMaximumQuantity
         );
 
