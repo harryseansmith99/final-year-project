@@ -27,15 +27,13 @@ include "includes/postNewProduct.php";
                 <?php
                 if (!empty($errorMessage)) {
                     echo "
-                    <div class='alert alert-warning alert-dismissable fade show' role='alert'>
+                    <div class='alert alert-warning alert-dismissable fade show text-center' role='alert'>
                         <strong>$errorMessage</strong>
                         <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
                     </div>
                     ";
                 }
                 ?>
-
-                <br><br>
                 <form action="addProduct.php" method="post">
                     <div class="row mb-3">
                         <label >Cateogry</label>
@@ -102,13 +100,14 @@ include "includes/postNewProduct.php";
                         </div>
                     </div>
                     <br><br>
-                    <?php 
+                    <?php
                     if (!empty($successMessageProduct)) {
-                        echo '
-                        <div class="alert alert-success" role="alert">
-                            A simple success alert—check it out!
+                        echo "
+                        <div class='alert alert-success alert-dismissable fade show text-center' role='alert'>
+                            <strong>$successMessageProduct</strong>
+                            <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
                         </div>
-                        ';
+                        ";
                     }
                     ?>
                 </form>

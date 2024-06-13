@@ -41,14 +41,11 @@ body {
     .sidenav a {font-size: 18px;}
 }
 
-/*
-#my_header {
-    color: aqua;
-    font-weight: bolder;
+.content {
+    font-size: 16px;
 }
-*/
 
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
-  }
+}

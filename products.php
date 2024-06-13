@@ -24,14 +24,13 @@
             <a class="btn btn-primary btn-lg mx-5" href="" role="button">Add New Category</a>
             <br><br><br>
 
-
+            <div class="content">
             <table class="table">
                 <thead>
                     <tr class="fs-9">
-                        <th>Product ID</th>
-                        <th>Category Name</th>
                         <th>Product Name</th>
                         <th>Product Desc</th>
+                        <th>Category Name</th>
                         <th>Serial Number</th>
                         <th>Quanity</th>
                         <th>Min Stock Level</th>
@@ -53,18 +52,17 @@
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "
                     <tr>
-                        <td>$row[productID]</td>
-                        <td>$row[categoryName]</td>
                         <td>$row[productName]</td>
                         <td>$row[productDescription]</td>
+                        <td>$row[categoryName]</td>
                         <td>$row[productSerialNumber]</td>
                         <td>$row[quantity]</td>
                         <td>$row[minimumStockLevel]</td>
                         <td>$row[maximumStockLevel]</td>
                         <td>$row[storageLocation]</td>
                         <td>
-                            <a class='btn btn-primary btn-lg' href='includes/editProduct.php?id=$row[productID]'>Edit Product Details</a>
-                            <a class='btn btn-danger btn-lg' href='delete.php'>Delete Product</a>
+                            <a class='btn btn-primary btn-sm' href='includes/editProduct.php?id=$row[productID]'>Edit Product</a>
+                            <a class='btn btn-danger btn-sm' href='delete.php'>Delete Product</a>
                         </td>
                     ";
                 }
@@ -78,6 +76,8 @@
             ?>
             </table>
 
+            </div>
+            
         </div>
     </div>
 </body>

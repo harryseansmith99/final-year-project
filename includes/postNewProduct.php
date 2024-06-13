@@ -14,7 +14,7 @@ $possibleMaximumQuantity = "";
 
 
 $errorMessage = "";
-$successMessageProduct = "Successfully Added Product";
+$successMessageProduct = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $categorySelect = $_POST["categorySelect"];
@@ -65,6 +65,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (! $sql->execute()) {
             $errorMessage = "Query is not valid: " . $conn->error;
             break;
+        }
+        else {
+            $successMessageProduct = "successfully added product";
         }
 
     } while(false);
