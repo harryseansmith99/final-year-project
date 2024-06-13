@@ -28,6 +28,7 @@
                 <table class="table">
                     <thead>
                         <tr class="fs-9">
+                            <th>Product ID</th>
                             <th>Product Name</th>
                             <th>Product Desc</th>
                             <th>Category Name</th>
@@ -50,6 +51,9 @@
                 // show all products in a table
                 if ($result->num_rows > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
+                        // for the edit and delete buttons we can simply use 
+                        // $row[productID], this will allow us to use $_GET
+                        // to edit or delete the product on that row 
                         echo "
                         <tr>
                             <td>$row[productName]</td>
@@ -61,11 +65,11 @@
                             <td>$row[maximumStockLevel]</td>
                             <td>$row[storageLocation]</td>
                             <td>
-                                <a class='btn btn-primary btn-sm' href='includes/editProduct.php?id=$row[productID]'>
+                                <a class='btn btn-primary btn-sm' href='editProduct.php?editProductId=$row[productID]'>
                                     <span class='button-font'>Edit</span><br>
                                     <span class='button-font'>Product</span>
                                 </a>
-                                <a class='btn btn-danger btn-sm' href='delete.php'>
+                                <a class='btn btn-danger btn-sm' href='delete.php?deleteProductId=$row[productID]'>
                                     <span class='button-font'>Delete</span><br>
                                     <span class='button-font'>Product</span>
                                 </a>
