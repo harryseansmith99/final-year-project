@@ -43,6 +43,12 @@ body {
 
 .content {
     font-size: 16px;
+
+}
+
+.button-font {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 @media screen and (max-height: 450px) {

@@ -25,59 +25,63 @@
             <br><br><br>
 
             <div class="content">
-            <table class="table">
-                <thead>
-                    <tr class="fs-9">
-                        <th>Product Name</th>
-                        <th>Product Desc</th>
-                        <th>Category Name</th>
-                        <th>Serial Number</th>
-                        <th>Quanity</th>
-                        <th>Min Stock Level</th>
-                        <th>Max Stock Level</th>
-                        <th>Location</th>
-                    </tr>
-                </thead>
-            <?php
+                <table class="table">
+                    <thead>
+                        <tr class="fs-9">
+                            <th>Product Name</th>
+                            <th>Product Desc</th>
+                            <th>Category Name</th>
+                            <th>Serial Number</th>
+                            <th>Quanity</th>
+                            <th>Min Stock Level</th>
+                            <th>Max Stock Level</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                <?php
 
-            // connection settings
-            include "includes/connectionSettings.php";
+                // connection settings
+                include "includes/connectionSettings.php";
 
-            $sql = "CALL proc_getAllProducts()";
+                $sql = "CALL proc_getAllProducts()";
 
-            $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($conn, $sql);
 
-            // show all products in a table
-            if ($result->num_rows > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "
-                    <tr>
-                        <td>$row[productName]</td>
-                        <td>$row[productDescription]</td>
-                        <td>$row[categoryName]</td>
-                        <td>$row[productSerialNumber]</td>
-                        <td>$row[quantity]</td>
-                        <td>$row[minimumStockLevel]</td>
-                        <td>$row[maximumStockLevel]</td>
-                        <td>$row[storageLocation]</td>
-                        <td>
-                            <a class='btn btn-primary btn-sm' href='includes/editProduct.php?id=$row[productID]'>Edit Product</a>
-                            <a class='btn btn-danger btn-sm' href='delete.php'>Delete Product</a>
-                        </td>
-                    ";
+                // show all products in a table
+                if ($result->num_rows > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "
+                        <tr>
+                            <td>$row[productName]</td>
+                            <td>$row[productDescription]</td>
+                            <td>$row[categoryName]</td>
+                            <td>$row[productSerialNumber]</td>
+                            <td>$row[quantity]</td>
+                            <td>$row[minimumStockLevel]</td>
+                            <td>$row[maximumStockLevel]</td>
+                            <td>$row[storageLocation]</td>
+                            <td>
+                                <a class='btn btn-primary btn-sm' href='includes/editProduct.php?id=$row[productID]'>
+                                    <span class='button-font'>Edit</span><br>
+                                    <span class='button-font'>Product</span>
+                                </a>
+                                <a class='btn btn-danger btn-sm' href='delete.php'>
+                                    <span class='button-font'>Delete</span><br>
+                                    <span class='button-font'>Product</span>
+                                </a>
+                            </td>
+                        ";
+                    }
+                    echo "</table>";
                 }
-                echo "</table>";
-            }
-            else {
-                echo "no results";
-            }
+                else {
+                    echo "no results";
+                }
 
-            $conn->close();
-            ?>
-            </table>
-
+                $conn->close();
+                ?>
+                </table>
             </div>
-            
         </div>
     </div>
 </body>
