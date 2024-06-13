@@ -3,13 +3,14 @@
 include "includes/connectionSettings.php";
 
 // init empty variables as place holders
+
 $categorySelect = "";
 $newProductName = "";
 $newProductDescription = "";
 $newSerialNumber = "";
 $storageLocationToAdd = "";
 $receivedQuantity = "";
-$possibleMinumumQuantity = "";
+$possibleMinimumQuantity = "";
 $possibleMaximumQuantity = "";
 
 
@@ -23,8 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newSerialNumber = $_POST["newSerialNumber"];
     $storageLocationToAdd = $_POST["storageLocationToAdd"];
     $receivedQuantityInt = $_POST["receivedQuantity"];
-    $possibleMinumumQuantityInt = $_POST["possibleMinumumQuantity"];
-    $possibleMaximumQuantityInt = $_POST["possibleMaximumQuantity"];
+    $possibleMinimumQuantity = (int)$_POST["possibleMinimumQuantity"];
+    $possibleMaximumQuantity = (int)$_POST["possibleMaximumQuantity"];
 
     // do while false allows this to break out after finished
     do {
@@ -39,12 +40,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         }
 
-        if (empty($possibleMinumumQuantityInt)) {
-            $possibleMinumumQuantityInt = "0";
+        // if these 2 fields are empty when form is submitted, they are null
+        if (!isset($possibleMinimumQuantity)) {
+            $possibleMinumumQuantity = null;
         }
 
-        if (empty($possibleMaximumQuantityInt)) {
-            $possibleMaximumQuantityInt = "0";
+        if (!isset($possibleMaximumQuantity)) {
+            $possibleMaximumQuantity = null;
         }
 
 
@@ -58,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $newSerialNumber, 
             $storageLocationToAdd, 
             $receivedQuantityInt, 
-            $possibleMinumumQuantity, 
+            $possibleMinimumQuantity, 
             $possibleMaximumQuantity
         );
 

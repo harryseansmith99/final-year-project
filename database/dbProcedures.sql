@@ -99,7 +99,8 @@ BEGIN
 
     UPDATE StockTable SET 
         StockTable.minimumStockLevel = newMinStockLevel,
-        StockTable.maximumStockLevel = newMaxStockLevel
+        StockTable.maximumStockLevel = newMaxStockLevel,
+        StockTable.storageLocation = newLocation
     WHERE 
         StockTable.productID_fk = productIdToFind;
 END $$

@@ -23,70 +23,59 @@
                 <?php
                 if (!empty($errorMessage)) {
                     echo "
-                    <div class='alert alert-warning alert-dismissable fade show' role='alert'>
+                    <div class='alert alert-warning alert-dismissable fade show text-center' role='alert'>
                         <strong>$errorMessage</strong>
                         <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
                     </div>
                     ";
                 }
                 ?>
-
-                <br><br>
-                <form method="post">
-                    <!-- how we get the id of the product when we select edit button -->
+                <form action="editProduct.php" method="post">
                     <input type="hidden" value="<?php echo $productID;?>">
-                    
                     <div class="row mb-3">
                         <label >Cateogry</label>
                         <select name="categorySelect" class="form-select form-select-md">
-                            <option value="<?php echo $categorySelect;?>">Select Category</option>
+                            <option value="<?php echo $categorySelect;?>">Select New Category</option>
                             <?php include "includes/getCategories.php"; ?>
                         </select>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Product Name</label>
+                        <label class="col-sm col-form-label">New Product Name</label>
                         <br>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="newProductName" value="<?php echo $newProductName;?>">
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Product Description</label>
+                        <label class="col-sm col-form-label">New Product Description</label>
                         <br>
                         <div class="col-sm-6">
                             <textarea class="form-control" name="newProductDescription" value="<?php echo $newProductDescription;?>"></textarea>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Serial Number</label>
+                        <label class="col-sm col-form-label">New Serial Number</label>
                         <br>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="newSerialNumber" value="<?php echo $newSerialNumber;?>">
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Storage Location</label>
+                        <label class="col-sm col-form-label">New Storage Location</label>
                         <br>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="storageLocationToAdd" value="<?php echo $storageLocationToAdd;?>">
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Received Quanity</label>
-                        <br>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="receivedQuantity" value="<?php echo $receivedQuantity;?>">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label class="col-sm col-form-label">Minimum Quantity</label>
+                        <label class="col-sm col-form-label">New Minimum Quantity</label>
                         <br>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="possibleMinimumQuantity" value="<?php echo $possibleMinumumQuantity;?>">
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Minimum Quantity</label>
+                        <label class="col-sm col-form-label">New Minimum Quantity</label>
                         <br>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="possibleMaximumQuantity" value="<?php echo $possibleMaximumQuantity;?>">
@@ -101,13 +90,14 @@
                         </div>
                     </div>
                     <br><br>
-                    <?php 
+                    <?php
                     if (!empty($successMessageProduct)) {
-                        echo '
-                        <div class="alert alert-success" role="alert">
-                            A simple success alert—check it out!
+                        echo "
+                        <div class='alert alert-success alert-dismissable fade show text-center' role='alert'>
+                            <strong>$successMessageProduct</strong>
+                            <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
                         </div>
-                        ';
+                        ";
                     }
                     ?>
                 </form>
