@@ -142,11 +142,40 @@ DELIMITER ;
 
 
 
+
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_deleteCategoryByName(
     IN categoryNameSearch VARCHAR(255)) 
 BEGIN
     DELETE FROM CategoryTable WHERE CategoryTable.categoryName = categoryNameSearch;
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE proc_incStockForProduct(
+    IN productNameSearch VARCHAR(255),
+    IN amount INT
+)
+BEGIN
+    SET @productIdSearch = (SELECT ProductTable.productID FROM ProductTable WHERE productName = productNameSearch);
+    UPDATE StockTable SET StockTable.quantity = StockTable.quantity + amount
+    WHERE StockTable.productID_fk = @productIdSearch;
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE proc_decStockForProduct(
+    IN productNameSearch VARCHAR(255),
+    IN amount INT
+)
+BEGIN
+    SET @productIdSearch = (SELECT ProductTable.productID FROM ProductTable WHERE productName = productNameSearch);
+    UPDATE StockTable SET StockTable.quantity = StockTable.quantity - amount
+    WHERE StockTable.productID_fk = @productIdSearch;
 END $$
 DELIMITER ;
 
