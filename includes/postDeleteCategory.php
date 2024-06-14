@@ -23,11 +23,11 @@ $successMessageProduct = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     error_log("Form submitted: " . print_r($_POST, true)); // Log POST data
 
-    $categorySelect = $_POST["$categorySelect"];
+    $categorySelect = $_POST["categorySelect"];
 
     // do while false allows this to break out after finished
     do {
-        if (empty($deleteCategoryName)) {
+        if (empty($categorySelect)) {
             $errorMessage = "Category Name Field Required";
             error_log($errorMessage); // Log error
             echo $errorMessage;
