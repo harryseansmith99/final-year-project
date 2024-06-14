@@ -136,8 +136,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         } 
         else {
-            echo "Successfully Edited Product<br>"; // Debugging statement
             $successMessageProduct = "Successfully Edited Product";
+            
             // Redirect after successful update
             header("location: products.php");
         }
