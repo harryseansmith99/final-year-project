@@ -50,10 +50,10 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Book In
+                        <label>Book In
                             <input type="radio" name="incOrDec" value="bookIn">
                         </label>
-                        <label class="col-sm col-form-label">Book Out
+                        <label>Book Out
                             <input type="radio" name="incOrDec" value="bookOut">
                         </label>
                         <br>
