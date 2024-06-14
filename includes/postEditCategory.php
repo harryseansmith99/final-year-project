@@ -31,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else {
             $successMessageProduct = "Successfully Added New Category";
+            header("location: products.php");
         }
 
     } while(false);
