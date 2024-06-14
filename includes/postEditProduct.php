@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 ini_set("log_errors", TRUE);
 ini_set("error_log", "/var/tmp/errors.log");
 
-// init empty variables as placeholders
+$productID = 0;
 $categorySelect = "";
 $newProductName = "";
 $newProductDescription = "";
@@ -17,40 +17,48 @@ $newSerialNumber = "";
 $storageLocationToAdd = "";
 $possibleMinimumQuantity = "";
 $possibleMaximumQuantity = "";
-
 $errorMessage = "";
 $successMessageProduct = "";
 
-// try to get productID from query string, idk why the hell it isnt working
-$productID = isset($_GET['editProductId']) ? (int)$_GET['editProductId'] : 0;
+// Handle GET request to fetch product details
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    if (isset($_GET['editProductId'])) {
+        $productID = (int)$_GET['editProductId'];
+        error_log("Retrieved productID: $productID"); // Log the retrieved productID
 
-// Fetch product details from the database using the productID
-if ($productID > 0) {
-    $sql = $conn->prepare("CALL proc_findProductById(?)");
-    $sql->bind_param("i", $productID);
-    $sql->execute();
-    $result = $sql->get_result();
-    $row = $result->fetch_assoc();
+        if ($productID > 0) {
+            $sql = $conn->prepare("CALL proc_findProductById(?)");
+            $sql->bind_param("i", $productID);
+            $sql->execute();
+            $result = $sql->get_result();
+            $product = $result->fetch_assoc();
 
-    if ($row) {
-        $categorySelect = $row['categoryName'];
-        $newProductName = $row['productName'];
-        $newProductDescription = $row['productDescription'];
-        $newSerialNumber = $row['productSerialNumber'];
-        $storageLocationToAdd = $row['storageLocation'];
-        $possibleMinimumQuantity = $row['minimumStockLevel'];
-        $possibleMaximumQuantity = $row['maximumStockLevel'];
-    } 
-    else {
-        $errorMessage = "Product not found";
+            if ($product) {
+                $categorySelect = $product['categoryName'];
+                $newProductName = $product['productName'];
+                $newProductDescription = $product['productDescription'];
+                $newSerialNumber = $product['productSerialNumber'];
+                $storageLocationToAdd = $product['storageLocation'];
+                $possibleMinimumQuantity = $product['minimumStockLevel'];
+                $possibleMaximumQuantity = $product['maximumStockLevel'];
+            } else {
+                $errorMessage = "Product not found";
+                error_log($errorMessage); // Log error
+                echo $errorMessage;
+                exit;
+            }
+        } else {
+            $errorMessage = "Invalid product ID";
+            error_log($errorMessage); // Log error
+            echo $errorMessage;
+            exit;
+        }
+    } else {
+        $errorMessage = "editProductId not found in GET request";
         error_log($errorMessage); // Log error
+        echo $errorMessage;
         exit;
     }
-} 
-else {
-    $errorMessage = "Invalid product ID";
-    error_log($errorMessage); // Log error
-    exit;
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -131,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Successfully Edited Product<br>"; // Debugging statement
             $successMessageProduct = "Successfully Edited Product";
             // Redirect after successful update
-            exit;
+            header("location: products.php");
         }
 
     } while(false);
