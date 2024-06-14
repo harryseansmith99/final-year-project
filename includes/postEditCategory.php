@@ -4,12 +4,14 @@ include "includes/connectionSettings.php";
 
 // init empty variables as place holders
 
+$categorySelect = "";
 $newCategoryName = "";
 
 $errorMessage = "";
 $successMessageProduct = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $categorySelect = $_POST["categorySelect"];
     $newCategoryName = $_POST["newCategoryName"];
 
     // do while false allows this to break out after finished
@@ -20,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // prepare and bind
-        $sql = $conn->prepare("CALL proc_addNewCategory(?)");
-        $sql->bind_param("s", $newCategoryName);
+        $sql = $conn->prepare("CALL proc_editCategoryByName(?,?)");
+        $sql->bind_param("s,s", $categorySelect, $newCategoryName);
 
         if (! $sql->execute()) {
             $errorMessage = "Query is not valid: " . $conn->error;
