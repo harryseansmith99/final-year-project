@@ -22,7 +22,8 @@ include "includes/postAddCategory.php";
 
         <div class="main">
 
-            <h1>Provide Details For New Product</h1>
+            <h1>Provide New Category Name</h1>
+            <br><br>
 
                 <?php
                 if (!empty($errorMessage)) {
@@ -42,6 +43,8 @@ include "includes/postAddCategory.php";
                             <input type="text" class="form-control" name="newCategoryName" value="<?php echo $newCategoryName;?>">
                         </div>
                     </div>
+                    <br><br>
+                    <div class="row mb-3">
                         <div class="offset-sm-3 col-sm-3 d-grid">
                             <button type="submit" class="btn btn-outline-primary">Submit</button>
                         </div>
