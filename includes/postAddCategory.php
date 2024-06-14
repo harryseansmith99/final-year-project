@@ -10,7 +10,7 @@ $errorMessage = "";
 $successMessageProduct = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $newCategoryName = "";
+    $newCategoryName = $_POST["newCategoryName"];
 
     // do while false allows this to break out after finished
     do {
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         }
         else {
-            $successMessageProduct = "successfully added product";
+            $successMessageProduct = "Successfully Added New Category";
         }
 
     } while(false);

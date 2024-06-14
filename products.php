@@ -21,7 +21,7 @@
             <br><br>
             
             <a class="btn btn-primary btn-lg mx-5" href="addProduct.php" role="button">Add New Product</a>
-            <a class="btn btn-primary btn-lg mx-5" href="" role="button">Add New Category</a>
+            <a class="btn btn-primary btn-lg mx-5" href="addCategory.php" role="button">Add New Category</a>
             <br><br><br>
 
             <div class="content">
