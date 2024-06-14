@@ -24,47 +24,46 @@ include "includes/postAddCategory.php";
 
             <h1>Provide New Category Name</h1>
             <br><br>
-
+            <?php
+            if (!empty($errorMessage)) {
+                echo "
+                <div class='alert alert-warning alert-dismissable fade show text-center' role='alert'>
+                    <strong>$errorMessage</strong>
+                    <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
+                </div>
+                ";
+            }
+            ?>
+            <form action="addCategory.php" method="post">
+                <div class="row mb-3">
+                    <label class="col-sm col-form-label">New Category Name</label>
+                    <br>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="newCategoryName" value="<?php echo $newCategoryName;?>">
+                    </div>
+                </div>
+                <br><br>
+                <div class="row mb-3">
+                    <div class="offset-sm-3 col-sm-3 d-grid">
+                        <button type="submit" class="btn btn-outline-primary">Submit</button>
+                    </div>
+                    <div class="col-sm-3 d-grid">
+                        <a class="btn btn-outline-danger" href="products.php" role="button">Cancel</a>
+                    </div>
+                </div>
+                <br><br>
                 <?php
-                if (!empty($errorMessage)) {
+                if (!empty($successMessageProduct)) {
                     echo "
-                    <div class='alert alert-warning alert-dismissable fade show text-center' role='alert'>
-                        <strong>$errorMessage</strong>
+                    <div class='alert alert-success alert-dismissable fade show text-center' role='alert'>
+                        <strong>$successMessageProduct</strong>
                         <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
                     </div>
                     ";
                 }
                 ?>
-                <form action="addCategory.php" method="post">
-                    <div class="row mb-3">
-                        <label class="col-sm col-form-label">New Category Name</label>
-                        <br>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="newCategoryName" value="<?php echo $newCategoryName;?>">
-                        </div>
-                    </div>
-                    <br><br>
-                    <div class="row mb-3">
-                        <div class="offset-sm-3 col-sm-3 d-grid">
-                            <button type="submit" class="btn btn-outline-primary">Submit</button>
-                        </div>
-                        <div class="col-sm-3 d-grid">
-                            <a class="btn btn-outline-danger" href="products.php" role="button">Cancel</a>
-                        </div>
-                    </div>
-                    <br><br>
-                    <?php
-                    if (!empty($successMessageProduct)) {
-                        echo "
-                        <div class='alert alert-success alert-dismissable fade show text-center' role='alert'>
-                            <strong>$successMessageProduct</strong>
-                            <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
-                        </div>
-                        ";
-                    }
-                    ?>
-                </form>
-            </div>
+            </form>
         </div>
+    </div>
 </body>
 </html>
