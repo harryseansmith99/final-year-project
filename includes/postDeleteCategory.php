@@ -15,7 +15,7 @@ ini_set('log_errors', 1);
 ini_set('error_log', '/var/tmp/php-error.log'); // Adjust this path
 
 // Init empty variables as place holders
-$deleteCategoryName = "";
+$categorySelect = "";
 
 $errorMessage = "";
 $successMessageProduct = "";
@@ -23,7 +23,7 @@ $successMessageProduct = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     error_log("Form submitted: " . print_r($_POST, true)); // Log POST data
 
-    $deleteCategoryName = $_POST["deleteCategoryName"];
+    $categorySelect = $_POST["$categorySelect"];
 
     // do while false allows this to break out after finished
     do {
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // prepare and bind
         $sql = $conn->prepare("CALL proc_deleteCategoryByName(?)");
-        $sql->bind_param("s", $deleteCategoryName);
+        $sql->bind_param("s", $categorySelect);
 
         error_log("Executing SQL statement");
         if (!$sql->execute()) {
