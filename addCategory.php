@@ -1,5 +1,5 @@
 <?php 
-//include "includes/postNewProduct.php";
+include "includes/postAddCategory.php";
 ?>
 
 <!DOCTYPE html>
