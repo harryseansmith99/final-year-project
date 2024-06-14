@@ -28,7 +28,6 @@
                 <table class="table">
                     <thead>
                         <tr class="fs-9">
-                            <th>Product ID</th>
                             <th>Product Name</th>
                             <th>Product Desc</th>
                             <th>Category Name</th>
@@ -56,7 +55,6 @@
                         // to edit or delete the product on that row 
                         echo "
                         <tr>
-                            <td>$row[productID]</td>
                             <td>$row[productName]</td>
                             <td>$row[productDescription]</td>
                             <td>$row[categoryName]</td>
@@ -70,7 +68,7 @@
                                     <span class='button-font'>Edit</span><br>
                                     <span class='button-font'>Product</span>
                                 </a>
-                                <a class='btn btn-danger btn-sm' href='delete.php?deleteProductId=$row[productID]'>
+                                <a class='btn btn-danger btn-sm' href='deleteProduct.php?deleteProductId=$row[productID]'>
                                     <span class='button-font'>Delete</span><br>
                                     <span class='button-font'>Product</span>
                                 </a>
