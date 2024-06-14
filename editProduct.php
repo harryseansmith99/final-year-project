@@ -54,7 +54,7 @@ include "includes/postEditProduct.php";
                         <label class="col-sm col-form-label">Product Description</label>
                         <br>
                         <div class="col-sm-6">
-                            <textarea class="form-control" name="newProductDescription" value="<?php echo $newProductDescription;?>"></textarea>
+                            <textarea class="form-control" type="text" name="newProductDescription"><?php echo $newProductDescription;?></textarea>
                         </div>
                     </div>
                     <div class="row mb-3">
