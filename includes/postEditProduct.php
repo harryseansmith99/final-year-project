@@ -30,7 +30,7 @@ if ($productID > 0) {
     $result = $sql->get_result();
     $row = $result->fetch_assoc();
 
-    if ($product) {
+    if ($row) {
         $categorySelect = $row['categoryName'];
         $newProductName = $row['productName'];
         $newProductDescription = $row['productDescription'];
@@ -129,14 +129,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Successfully Edited Product<br>"; // Debugging statement
             $successMessageProduct = "Successfully Edited Product";
             // Redirect after successful update
-            header("Location: products.php");
             exit;
         }
 
     } while(false);
 }
 
-if (!empty($errorMessage)) {
-    echo "<div class='alert alert-danger'>$errorMessage</div>";
-}
+
 ?>

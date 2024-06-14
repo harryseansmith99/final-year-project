@@ -34,7 +34,7 @@ include "includes/postEditProduct.php";
                     ";
                 }
                 ?>
-                <form action="includes/postEditProduct.php" method="post">
+                <form action="editProduct.php" method="post">
                 <input type="hidden" name="productID" value="<?php echo $productID; ?>">
                     <div class="row mb-3">
                         <label >Cateogry</label>
