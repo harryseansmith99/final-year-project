@@ -77,7 +77,7 @@
                             </td>
                         ";
                     }
-                    echo "</table>";
+                    echo "</tr>";
                 }
                 else {
                     echo "no results";
