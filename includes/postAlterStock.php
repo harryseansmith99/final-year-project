@@ -43,9 +43,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         }
 
-        if ($incOrDec == "bookIn") {
+        error_log("Preparing SQL statement");
 
+        $sql = $conn->prepare("CALL proc_alterProductStockLevel(?, ?, ?)");
+        if (!$sql) {
+            $errorMessage = "Prepare failed: (" . $conn->errno . ") " . $conn->error;
+            error_log($errorMessage); // Log error
+            echo $errorMessage;
+            break;
         }
+
+        $sql->bind_param("ssi", $productSelect, $amount, $incOrDec);
+
+        error_log("Executing SQL statement");
+        if (!$sql->execute()) {
+            $errorMessage = "Execute failed: (" . $sql->errno . ") " . $sql->error;
+            error_log($errorMessage); // Log error
+            echo $errorMessage;
+            break;
+        } else {
+            $successMessageProduct = "Successfully Edited Category";
+            error_log($successMessageProduct); // Log success message
+            exit;
+        }
+
 
     } while (false);
 }

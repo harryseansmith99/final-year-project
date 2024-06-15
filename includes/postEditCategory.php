@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // prepare and bind
-        error_log("Preparing SQL statement");
+        
         $sql = $conn->prepare("CALL proc_editCategoryByName(?, ?)");
         if (!$sql) {
             $errorMessage = "Prepare failed: (" . $conn->errno . ") " . $conn->error;
