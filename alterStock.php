@@ -49,14 +49,14 @@
                             <input type="text" class="form-control" name="amount" value="<?php echo $amount;?>">
                         </div>
                     </div>
-                    <div class="row mb-3">
+                    <div>
                         <label>Book In
                             <input type="radio" name="incOrDec" value="bookIn">
                         </label>
-                        <label>Book Out
+                        <label class="book-out-radio">Book Out
                             <input type="radio" name="incOrDec" value="bookOut">
                         </label>
-                        <br>
+                        <br><br>
                     </div>
                     <div class="row mb-3">
                         <div class="offset-sm-3 col-sm-3 d-grid">
