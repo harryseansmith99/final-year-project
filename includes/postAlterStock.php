@@ -61,10 +61,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             error_log($errorMessage); // Log error
             echo $errorMessage;
             break;
-        } else {
+        } 
+        else {
             $successMessageProduct = "Successfully Edited Category";
             error_log($successMessageProduct); // Log success message
-            exit;
         }
 
 
