@@ -21,7 +21,7 @@ include "includes/postDeleteCategory.php";
     <div class="container my-5">
 
         <div class="main">
-
+ 
             <h1>Delete Category</h1>
             <br><br>
             <?php
