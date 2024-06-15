@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $productSelect = $_POST["productSelect"];
     $amount = (int)$_POST["amount"];
-    $incOrDec = $_POST["incOrDec"];
+    $incOrDec = @$_POST["incOrDec"];
 
     // Log variables
     error_log("Product Select: $productSelect");
@@ -40,7 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $errorMessage = "All Fields Are Required";
             error_log($errorMessage); // Log error
-            echo $errorMessage;
             break;
         }
 
@@ -50,7 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$sql) {
             $errorMessage = "Prepare failed: (" . $conn->errno . ") " . $conn->error;
             error_log($errorMessage); // Log error
-            echo $errorMessage;
             break;
         }
 
@@ -60,7 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$sql->execute()) {
             $errorMessage = "Execute failed: (" . $sql->errno . ") " . $sql->error;
             error_log($errorMessage); // Log error
-            echo $errorMessage;
             break;
         } 
         else {
