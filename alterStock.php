@@ -1,5 +1,5 @@
 <?php 
-//include "includes/postNewProduct.php";
+include "includes/postAlterStock.php";
 ?>
 
 <!DOCTYPE html>
