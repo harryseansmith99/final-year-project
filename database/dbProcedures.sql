@@ -154,14 +154,21 @@ DELIMITER ;
 
 
 DELIMITER $$
-CREATE OR REPLACE PROCEDURE proc_editProductStockQuantity(
+CREATE OR REPLACE PROCEDURE proc_alterProductStockLevel(
     IN productNameSearch VARCHAR(255),
+    IN option VARCHAR(7),
     IN amount INT
 )
 BEGIN
     SET @productIdSearch = (SELECT ProductTable.productID FROM ProductTable WHERE productName = productNameSearch);
-    UPDATE StockTable SET StockTable.quantity = StockTable.quantity + amount
-    WHERE StockTable.productID_fk = @productIdSearch;
+    
+    IF option = "bookIn" THEN
+        UPDATE StockTable SET StockTable.quantity = StockTable.quantity + amount
+        WHERE StockTable.productID_fk = @productIdSearch;
+    ELSEIF option = "bookOut" THEN
+        UPDATE StockTable SET StockTable.quantity = StockTable.quantity - amount
+        WHERE StockTable.productID_fk = @productIdSearch;
+    END IF;
 END $$ 
 DELIMITER ;
 
