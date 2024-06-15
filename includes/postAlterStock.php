@@ -28,8 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $incOrDec = $_POST["incOrDec"];
 
     // Log variables
-    error_log("Category Select: $categorySelect");
-    error_log("New Category Name: $newCategoryName");
+    error_log("Product Select: $productSelect");
+    error_log("Amount: $amount");
+    error_log("Inc or Dec: $incOrDec");
 
     // do while false allows this to break out after finished
     do {
@@ -53,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         }
 
-        $sql->bind_param("ssi", $productSelect, $amount, $incOrDec);
+        $sql->bind_param("ssi", $productSelect, $incOrDec, $amount);
 
         error_log("Executing SQL statement");
         if (!$sql->execute()) {
@@ -63,8 +64,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         } 
         else {
-            $successMessageProduct = "Successfully Edited Category";
-            error_log($successMessageProduct); // Log success message
+            if ($incOrDec == "bookIn") {
+                $successMessageProduct = "Successfully Allocated Stock";
+                error_log($successMessageProduct); // Log success message
+            }
+            else {
+                $successMessageProduct = "Successfully Deallocated Stock";
+                error_log($successMessageProduct); // Log success message
+            }
+            
         }
 
 
