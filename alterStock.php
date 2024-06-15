@@ -39,7 +39,7 @@
                         <label>Product</label>
                         <select name="productSelect" class="form-select form-select-md">
                             <option value="<?php echo $productSelect;?>">Select Product</option>
-                            <?php include "includes/getCategories.php"; ?>
+                            <?php include "includes/getProducts.php"; ?>
                         </select>
                     </div>
                     <div class="row mb-3">
