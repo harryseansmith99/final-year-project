@@ -70,7 +70,7 @@
                                     <span class='button-font'>Edit</span><br>
                                     <span class='button-font'>Product</span>
                                 </a>
-                                <a class='btn btn-danger btn-sm' href='deleteProduct.php?deleteProductId=$row[productID]'>
+                                <a class='btn btn-danger btn-sm' href='includes/deleteProduct.php?deleteProductId=$row[productID]'>
                                     <span class='button-font'>Delete</span><br>
                                     <span class='button-font'>Product</span>
                                 </a>

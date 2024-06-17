@@ -1,6 +1,6 @@
 <?php 
 
-include "includes/connectionSettings.php";
+include "connectionSettings.php";
 
 // similar to edit products, need to use GET to retrieve the id from the server
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
