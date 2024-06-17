@@ -270,3 +270,13 @@ BEGIN
 END $$
 DELIMITER ;
 
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE proc_deleteUserById(
+    IN userIdSearch INT
+)
+BEGIN
+    DELETE FROM UserTable WHERE UserTable.userID = userIdSearch;
+END $$
+DELIMITER ;
+
