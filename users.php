@@ -20,7 +20,7 @@
             <h1 id="my_header">All Current Users</h1>
             <br><br>
             
-            <a class="btn btn-primary btn-lg mx-5" href="#add-new-user" role="button">Add New User</a>
+            <a class="btn btn-primary btn-lg mx-5" href="addUser.php" role="button">Add New User</a>
             <br><br><br>
 
             <div class="content">

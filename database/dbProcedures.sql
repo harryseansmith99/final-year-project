@@ -299,6 +299,7 @@ END $$
 DELIMITER ;
 
 
+
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_deleteUserById(
     IN userIdSearch INT

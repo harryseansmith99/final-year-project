@@ -1,5 +1,5 @@
 <?php 
-//include "includes/postAddCategory.php";
+include "includes/postAddUser.php";
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
+    <title>Add User</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css?<?php echo time(); ?>">
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
@@ -39,43 +39,43 @@
                     <label class="col-sm col-form-label">New User First Name</label>
                     <br>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="newCategoryName" value="<?php echo $newfirstName;?>">
+                        <input type="text" class="form-control" name="newFirstName" value="<?php echo $newfirstName;?>">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm col-form-label">New User Last Name</label>
                     <br>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="newCategoryName" value="<?php echo $newLastName;?>">
+                        <input type="text" class="form-control" name="newLastName" value="<?php echo $newLastName;?>">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm col-form-label">New User Email</label>
                     <br>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="newCategoryName" value="<?php echo $newEmail;?>">
+                        <input type="text" class="form-control" name="newEmail" value="<?php echo $newEmail;?>">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm col-form-label">New User Password</label>
                     <br>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="newCategoryName" value="<?php echo $newPassword;?>">
+                        <input type="text" class="form-control" name="newPassword" value="<?php echo $newPassword;?>">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm col-form-label">Confirm New User Password</label>
                     <br>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="newCategoryName" value="<?php echo $confirmNewPassword;?>">
+                        <input type="text" class="form-control" name="confirmNewPassword" value="<?php echo $confirmNewPassword;?>">
                     </div>
                 </div>
                 <div>
                     <label>Standard User
-                        <input type="radio" name="incOrDec" value=1>
+                        <input type="radio" name="userSec" value="1">
                     </label>
                     <label class="book-out-radio">Admin User
-                        <input type="radio" name="incOrDec" value=2>
+                        <input type="radio" name="userSec" value="2">
                     </label>
                     <br><br>
                 </div>
