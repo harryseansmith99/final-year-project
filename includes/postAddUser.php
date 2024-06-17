@@ -74,12 +74,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $errorMessage = "Execute failed: (" . $sql->errno . ") " . $sql->error;
             error_log($errorMessage); // Log error
             break;
-        } else {
-            $successMessageProduct = "Successfully Added New User";
-            error_log($successMessageProduct); // Log success
-            ob_clean(); // Ensure no output before header
-            header("Location: users.php");
-            exit;
+        } 
+        else {
+            // standard user is level 1, admin is 2
+            $status = ($userSec == 1) ? "Standard" : "Admin";
+            $successMessageProduct = "Successfully Added New " . $status ." User: " . $newEmail;
+
+            // clear the variables so another new user can be added
+            $newFirstName = "";
+            $newLastName = "";
+            $newEmail = "";
+            $newPassword = "";
+            $confirmNewPassword = "";
+            $userSec = "";
         }
 
     } while (false);
