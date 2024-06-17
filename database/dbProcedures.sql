@@ -244,8 +244,29 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_getUserPassword(
-    IN userPasswordSearch VARCHAR(255))
+    IN userPasswordSearch VARCHAR(255)
+)
 BEGIN
     SELECT * FROM UserTable
     WHERE UserTable.userPassword = userPasswordSearch;
 END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE proc_editUserDetails(
+    IN userIdSearch INT,
+    IN editFirstName VARCHAR(255),
+    IN editLastName VARCHAR(255),
+    IN editEmail VARCHAR(255)
+)
+BEGIN
+    UPDATE UserTable SET
+        UserTable.firstName = editFirstName,
+        UserTable.lastName = editLastName,
+        UserTable.email = editEmail
+    WHERE UserTable.userID = userIdSearch;
+END $$
+DELIMITER ;
+
