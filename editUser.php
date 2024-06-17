@@ -1,5 +1,5 @@
 <?php 
-//include "includes/postAddUser.php";
+include "includes/postEditUser.php";
 ?>
 
 <!DOCTYPE html>
@@ -57,20 +57,7 @@
                         <input type="text" class="form-control" name="editEmail" value="<?php echo $editEmail;?>">
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <label class="col-sm col-form-label">User Password</label>
-                    <br>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="editPassword" value="<?php echo $editPassword;?>">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <label class="col-sm col-form-label">Confirm User Password</label>
-                    <br>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="confirmEditPassword" value="<?php echo $confirmEditPassword;?>">
-                    </div>
-                </div> <br><br>
+                <br><br>
                 <!-- no need for editing user type, in this situation you would just add a new user for the same 
                  person with the other security level -->
                 <div class="row mb-3">

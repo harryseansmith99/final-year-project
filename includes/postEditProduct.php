@@ -17,6 +17,7 @@ $newSerialNumber = "";
 $storageLocationToAdd = "";
 $possibleMinimumQuantity = "";
 $possibleMaximumQuantity = "";
+
 $errorMessage = "";
 $successMessageProduct = "";
 
@@ -84,14 +85,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $possibleMaximumQuantity = (int)$_POST["possibleMaximumQuantity"];
 
     // Debugging statements to check captured values
-    echo "Product ID: $productID<br>";
-    echo "Category: $categorySelect<br>";
-    echo "Product Name: $newProductName<br>";
-    echo "Product Description: $newProductDescription<br>";
-    echo "Serial Number: $newSerialNumber<br>";
-    echo "Storage Location: $storageLocationToAdd<br>";
-    echo "Minimum Quantity: $possibleMinimumQuantity<br>";
-    echo "Maximum Quantity: $possibleMaximumQuantity<br>";
+    // echo "Product ID: $productID<br>";
+    // echo "Category: $categorySelect<br>";
+    // echo "Product Name: $newProductName<br>";
+    // echo "Product Description: $newProductDescription<br>";
+    // echo "Serial Number: $newSerialNumber<br>";
+    // echo "Storage Location: $storageLocationToAdd<br>";
+    // echo "Minimum Quantity: $possibleMinimumQuantity<br>";
+    // echo "Maximum Quantity: $possibleMaximumQuantity<br>";
 
     // do while false allows this to break out after finished
     do {

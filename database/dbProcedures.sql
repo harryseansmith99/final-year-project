@@ -283,7 +283,7 @@ DELIMITER ;
 
 
 DELIMITER $$
-CREATE OR REPLACE PROCEDURE proc_editUserDetails(
+CREATE OR REPLACE PROCEDURE proc_editUserDetailsById(
     IN userIdSearch INT,
     IN editFirstName VARCHAR(255),
     IN editLastName VARCHAR(255),
