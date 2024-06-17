@@ -5,7 +5,7 @@ include "connectionSettings.php";
 // similar to edit products, need to use GET to retrieve the id from the server
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (isset($_GET['deleteUserId'])) {
-        $productID = (int)$_GET['deleteUserId'];
+        $userID = (int)$_GET['deleteUserId'];
         $sql = $conn->prepare("CALL proc_deleteUserById(?)");
         $sql->bind_param("i", $userID);
         $sql->execute();
@@ -15,8 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         } 
         else {
             // product has been deleted, redirect back to users.php
-            header("location: users.php");
-            
+            header("location: ../users.php");
         }
     }
 }
