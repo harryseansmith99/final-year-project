@@ -61,7 +61,7 @@
                                     <span class='button-font'>Edit</span><br>
                                     <span class='button-font'>User</span>
                                 </a>
-                                <a class='btn btn-danger btn-sm' href=#delete-user>
+                                <a class='btn btn-danger btn-sm' href='includes/deleteUser.php?deleteUserId=$row[userID]'>
                                     <span class='button-font'>Delete</span><br>
                                     <span class='button-font'>User</span>
                                 </a>
