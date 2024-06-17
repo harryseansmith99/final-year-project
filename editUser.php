@@ -35,6 +35,7 @@
             }
             ?>
             <form action="editUser.php" method="post">
+            <input type="hidden" name="userID" value="<?php echo $userID; ?>">
                 <div class="row mb-3">
                     <label class="col-sm col-form-label">First Name</label>
                     <br>

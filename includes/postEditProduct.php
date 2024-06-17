@@ -41,19 +41,22 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 $storageLocationToAdd = $product['storageLocation'];
                 $possibleMinimumQuantity = $product['minimumStockLevel'];
                 $possibleMaximumQuantity = $product['maximumStockLevel'];
-            } else {
+            } 
+            else {
                 $errorMessage = "Product not found";
                 error_log($errorMessage); // Log error
                 echo $errorMessage;
                 exit;
             }
-        } else {
+        } 
+        else {
             $errorMessage = "Invalid product ID";
             error_log($errorMessage); // Log error
             echo $errorMessage;
             exit;
         }
-    } else {
+    } 
+    else {
         $errorMessage = "editProductId not found in GET request";
         error_log($errorMessage); // Log error
         echo $errorMessage;
@@ -137,6 +140,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } 
         else {
             $successMessageProduct = "Successfully Edited Product";
+
+            $productID = "";
+            $categorySelect = "";
+            $newProductName = "";
+            $newProductDescription = ""; 
+            $newSerialNumber = "";
+            $storageLocationToAdd = "";
+            $possibleMinimumQuantity = "";
+            $possibleMaximumQuantity = "";
             
             // Redirect after successful update
             header("location: products.php");
