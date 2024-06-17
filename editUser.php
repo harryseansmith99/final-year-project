@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm col-form-label">ser Last Name</label>
+                    <label class="col-sm col-form-label">User Last Name</label>
                     <br>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" name="editLastName" value="<?php echo $editLastName;?>">
