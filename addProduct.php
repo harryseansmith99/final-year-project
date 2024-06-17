@@ -1,5 +1,5 @@
 <?php 
-include "includes/postNewProduct.php";
+include "includes/postAddProduct.php";
 ?>
 
 <!DOCTYPE html>
@@ -85,7 +85,7 @@ include "includes/postNewProduct.php";
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Minimum Quantity</label>
+                        <label class="col-sm col-form-label">Maximum Quantity</label>
                         <br>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="possibleMaximumQuantity" value="<?php echo $possibleMaximumQuantity;?>">
