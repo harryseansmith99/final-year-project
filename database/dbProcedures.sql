@@ -1,5 +1,8 @@
 USE inventory_management_db;
 
+-- -------------------------------------
+-- products procedures
+
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_getAllProducts()
 BEGIN
@@ -108,6 +111,9 @@ END $$
 DELIMITER ;
 
 
+-- -------------------------------------
+-- categories procedures
+
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_getAllCategories() 
@@ -152,6 +158,9 @@ END $$
 DELIMITER ;
 
 
+-- -------------------------------------
+-- stock procedures
+
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_alterProductStockLevel(
@@ -170,6 +179,25 @@ BEGIN
         WHERE StockTable.productID_fk = @productIdSearch;
     END IF;
 END $$ 
+DELIMITER ;
+
+
+-- -------------------------------------
+-- user procedures
+
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE proc_addNewUser(
+    IN userFirstName VARCHAR(255),
+    IN userLastName VARCHAR(255),
+    IN newEmail VARCHAR(255),
+    IN newPassword VARCHAR(255), -- NEED TO HASH THIS WITH SHA256 AT SOME POINT
+    IN securityLevel INT
+)
+BEGIN
+    INSERT INTO UserTable (firstName, lastName, email, userPassword, secLevel)
+    VALUES (userFirstName, userLastName, newEmail, newPassword, securityLevel);
+END $$
 DELIMITER ;
 
 
@@ -244,8 +272,40 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_getUserPassword(
-    IN userPasswordSearch VARCHAR(255))
+    IN userPasswordSearch VARCHAR(255)
+)
 BEGIN
     SELECT * FROM UserTable
     WHERE UserTable.userPassword = userPasswordSearch;
 END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE proc_editUserDetails(
+    IN userIdSearch INT,
+    IN editFirstName VARCHAR(255),
+    IN editLastName VARCHAR(255),
+    IN editEmail VARCHAR(255)
+)
+BEGIN
+    UPDATE UserTable SET
+        UserTable.firstName = editFirstName,
+        UserTable.lastName = editLastName,
+        UserTable.email = editEmail
+    WHERE UserTable.userID = userIdSearch;
+END $$
+DELIMITER ;
+
+
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE proc_deleteUserById(
+    IN userIdSearch INT
+)
+BEGIN
+    DELETE FROM UserTable WHERE UserTable.userID = userIdSearch;
+END $$
+DELIMITER ;
+
