@@ -39,7 +39,7 @@ include "includes/postAddUser.php";
                     <label class="col-sm col-form-label">New User First Name</label>
                     <br>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="newFirstName" value="<?php echo $newfirstName;?>">
+                        <input type="text" class="form-control" name="newFirstName" value="<?php echo $newFirstName;?>">
                     </div>
                 </div>
                 <div class="row mb-3">
