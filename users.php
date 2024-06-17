@@ -20,24 +20,18 @@
             <h1 id="my_header">All Current Products</h1>
             <br><br>
             
-            <a class="btn btn-primary btn-lg mx-5" href="addProduct.php" role="button">Add New Product</a>
-            <a class="btn btn-primary btn-lg mx-5" href="addCategory.php" role="button">Add New Category</a>
-            <a class="btn btn-primary btn-lg mx-5" href="editCategory.php" role="button">Edit Category</a>
-            <a class="btn btn-primary btn-lg mx-5" href="deleteCategory.php" role="button">Delete Category</a>
+            <a class="btn btn-primary btn-lg mx-5" href="#add-new-user" role="button">Add New User</a>
             <br><br><br>
 
             <div class="content">
                 <table class="table">
                     <thead>
                         <tr class="fs-9">
-                            <th>Product Name</th>
-                            <th>Product Desc</th>
-                            <th>Category Name</th>
-                            <th>Serial Number</th>
-                            <th>Quanity</th>
-                            <th>Min Stock Level</th>
-                            <th>Max Stock Level</th>
-                            <th>Location</th>
+                            <th>User ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Security Level</th>
                         </tr>
                     </thead>
                 <?php
@@ -45,32 +39,29 @@
                 // connection settings
                 include "includes/connectionSettings.php";
 
-                $sql = "CALL proc_getAllProducts()";
+                $sql = "CALL proc_getAllUsers()";
 
                 $result = mysqli_query($conn, $sql);
 
-                // show all products in a table
+                // show all users in a table
                 if ($result->num_rows > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         // for the edit and delete buttons we can simply use 
-                        // $row[productID], this will allow us to use $_GET
+                        // $row[userID], this will allow us to use $_GET
                         // to edit or delete the product on that row 
                         echo "
                         <tr>
-                            <td>$row[productName]</td>
-                            <td>$row[productDescription]</td>
-                            <td>$row[categoryName]</td>
-                            <td>$row[productSerialNumber]</td>
-                            <td>$row[quantity]</td>
-                            <td>$row[minimumStockLevel]</td>
-                            <td>$row[maximumStockLevel]</td>
-                            <td>$row[storageLocation]</td>
+                            <td>$row[userID]</td>
+                            <td>$row[firstName]</td>
+                            <td>$row[lastName]</td>
+                            <td>$row[email]</td>
+                            <td>$row[secLevel]</td>
                             <td>
-                                <a class='btn btn-primary btn-sm' href='editProduct.php?editProductId=$row[productID]'>
+                                <a class='btn btn-primary btn-sm' href=#edit-user>
                                     <span class='button-font'>Edit</span><br>
                                     <span class='button-font'>Product</span>
                                 </a>
-                                <a class='btn btn-danger btn-sm' href='deleteProduct.php?deleteProductId=$row[productID]'>
+                                <a class='btn btn-danger btn-sm' href=#delete-user>
                                     <span class='button-font'>Delete</span><br>
                                     <span class='button-font'>Product</span>
                                 </a>
