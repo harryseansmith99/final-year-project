@@ -182,7 +182,8 @@ BEGIN
         UserTable.userID,
         UserTable.firstName,
         UserTable.lastName,
-        UserTable.email
+        UserTable.email,
+        UserTable.secLevel
     FROM UserTable;
 END $$
 DELIMITER ;
