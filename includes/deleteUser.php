@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $errorMessage = "Query is not valid: " . $conn->error;
         } 
         else {
-            // product has been deleted, redirect back to users.php
+            // user has been deleted, redirect back to users.php
             header("location: ../users.php");
         }
     }
