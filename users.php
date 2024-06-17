@@ -17,7 +17,7 @@
 
         <div class="main">
 
-            <h1 id="my_header">All Current Products</h1>
+            <h1 id="my_header">All Current Users</h1>
             <br><br>
             
             <a class="btn btn-primary btn-lg mx-5" href="#add-new-user" role="button">Add New User</a>
@@ -59,11 +59,11 @@
                             <td>
                                 <a class='btn btn-primary btn-sm' href=#edit-user>
                                     <span class='button-font'>Edit</span><br>
-                                    <span class='button-font'>Product</span>
+                                    <span class='button-font'>User</span>
                                 </a>
                                 <a class='btn btn-danger btn-sm' href=#delete-user>
                                     <span class='button-font'>Delete</span><br>
-                                    <span class='button-font'>Product</span>
+                                    <span class='button-font'>User</span>
                                 </a>
                             </td>
                         ";
