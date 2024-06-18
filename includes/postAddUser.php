@@ -53,6 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         }
 
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+
         // Prepare and bind
         $sql = $conn->prepare("CALL proc_addNewUser(?, ?, ?, ?, ?)");
         if (!$sql) {
@@ -66,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $newFirstName,
             $newLastName,
             $newEmail,
-            $newPassword,
+            $hashedPassword,
             $userSec
         );
 
