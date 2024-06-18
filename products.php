@@ -82,13 +82,12 @@
                                 <a class='btn btn-primary btn-sm' href='editProduct.php?editProductId=$row[productID]'>
                                     <span class='button-font'>Edit</span><br>
                                     <span class='button-font'>Product</span>
-                                </a>
-                                <a class='btn btn-danger btn-sm' href='includes/deleteProduct.php?deleteProductId=$row[productID]'>
-                                    <span class='button-font'>Delete</span><br>
-                                    <span class='button-font'>Product</span>
-                                </a>
-                            </td>
-                        ";
+                                </a>";
+                        if ($isAdmin) {echo "<a class='btn btn-danger btn-sm' href='includes/deleteProduct.php?deleteProductId=$row[productID]'>
+                            <span class='button-font'>Delete</span><br>
+                            <span class='button-font'>Product</span>
+                        </a>
+                    </td>";}  
                     }
                     echo "</tr>";
                 }
