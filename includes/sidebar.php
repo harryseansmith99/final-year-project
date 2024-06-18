@@ -17,9 +17,9 @@ echo '
   }
   // rest of sidebar
   echo '
-    <a href="#Logout">Logout</a>
+    <a href="includes/logout.php">Logout</a>
 </div>
-  ';
+';
 
 ?>
 
