@@ -10,6 +10,7 @@
 <body>
 
     <?php 
+    include "includes/authenticateAdmin.php";
     include "includes/sidebar.php"; 
     ?>
 
@@ -23,7 +24,13 @@
             <a class="btn btn-primary btn-lg mx-5" href="addProduct.php" role="button">Add New Product</a>
             <a class="btn btn-primary btn-lg mx-5" href="addCategory.php" role="button">Add New Category</a>
             <a class="btn btn-primary btn-lg mx-5" href="editCategory.php" role="button">Edit Category</a>
-            <a class="btn btn-primary btn-lg mx-5" href="deleteCategory.php" role="button">Delete Category</a>
+
+            <?php 
+            // if the current user is an admin, then echo out the delete category button
+            if ($isAdmin) {
+                echo '<a class="btn btn-primary btn-lg mx-5" href="deleteCategory.php" role="button">Delete Category</a>';
+            }
+            ?>
             <br><br><br>
 
             <div class="content">
@@ -69,13 +76,16 @@
                                 <a class='btn btn-primary btn-sm' href='editProduct.php?editProductId=$row[productID]'>
                                     <span class='button-font'>Edit</span><br>
                                     <span class='button-font'>Product</span>
-                                </a>
-                                <a class='btn btn-danger btn-sm' href='includes/deleteProduct.php?deleteProductId=$row[productID]'>
-                                    <span class='button-font'>Delete</span><br>
-                                    <span class='button-font'>Product</span>
-                                </a>
-                            </td>
-                        ";
+                                </a>";
+
+                        // if the current user is an admin, then echo out the delete product button
+                        if ($isAdmin) {
+                            echo "<a class='btn btn-danger btn-sm' href='includes/deleteProduct.php?deleteProductId=$row[productID]'>
+                            <span class='button-font'>Delete</span><br>
+                            <span class='button-font'>Product</span>
+                            </a>
+                        </td>";
+                        }  
                     }
                     echo "</tr>";
                 }

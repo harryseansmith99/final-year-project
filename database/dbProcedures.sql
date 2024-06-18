@@ -191,7 +191,7 @@ CREATE OR REPLACE PROCEDURE proc_addNewUser(
     IN userFirstName VARCHAR(255),
     IN userLastName VARCHAR(255),
     IN newEmail VARCHAR(255),
-    IN newPassword VARCHAR(255), -- NEED TO HASH THIS WITH SHA256 AT SOME POINT
+    IN newPassword VARCHAR(255),
     IN securityLevel INT
 )
 BEGIN
@@ -250,7 +250,8 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_getUserByID(
-    IN userIdSearch INT)
+    IN userIdSearch INT
+)
 BEGIN
     SELECT * FROM UserTable
     WHERE UserTable.userID = userIdSearch;
@@ -258,10 +259,11 @@ END $$
 DELIMITER ;
 
 
-
+-- used in login
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_getUserByEmail(
-    IN userEmailSearch VARCHAR(255))
+    IN userEmailSearch VARCHAR(255)
+)
 BEGIN
     SELECT * FROM UserTable
     WHERE UserTable.email = userEmailSearch;
@@ -307,5 +309,4 @@ CREATE OR REPLACE PROCEDURE proc_deleteUserById(
 BEGIN
     DELETE FROM UserTable WHERE UserTable.userID = userIdSearch;
 END $$
-DELIMITER ;
 
