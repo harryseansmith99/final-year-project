@@ -1,5 +1,49 @@
 /* sidebar borrowed from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_sidenav_fixed */
+/* login form partially borrowed and inspired by https://www.w3schools.com/howto/howto_css_login_form.asp */
 
+.login-body {
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+}
+  
+/* Full-width input fields */
+.email-input, .password-input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+  
+/* Set a style for all buttons */
+.login-button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+  
+.login-button:hover {
+    opacity: 0.8;
+}
+  
+.login-form-container {
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
 body {
     font-family: "Lato", sans-serif;
