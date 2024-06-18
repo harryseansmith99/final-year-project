@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // we want these session variables so the site can be different
             // depending on who is logged in (standard or admin user)
             $_SESSION["email"] = $email;
-            $_SESSION["secLevel"] = $user["secLevel"]; // get it from fetched db row (user)
+            (int)$_SESSION["secLevel"] = $user["secLevel"]; // get it from fetched db row (user)
             $successMessage = "Login Successful";
             header("Location: products.php");
             exit;
