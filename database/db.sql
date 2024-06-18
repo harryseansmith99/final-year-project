@@ -53,7 +53,7 @@ CREATE TABLE UserTable (
     email VARCHAR(255) NOT NULL,
     userPassword VARCHAR(255) NOT NULL,
     secLevel INT NOT NULL,
-    PRIMARY KEY (userID)
+    CONSTRAINT pk_UserTable PRIMARY KEY (userID, email)
 );
 
 
