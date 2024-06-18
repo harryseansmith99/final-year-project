@@ -10,10 +10,10 @@
     <div class="login-form-container">
         <form action="/action_page.php" method="post">
             <label for="email"><b>Email</b></label>
-            <input class="email-input" type="text" placeholder="Enter Email" name="email" required>
+            <input class="email-input" type="text" placeholder="Enter Email" name="email">
             <br><br>
             <label for="password"><b>Password</b></label>
-            <input class="password-input" type="password" placeholder="Enter Password" name="password" required>
+            <input class="password-input" type="password" placeholder="Enter Password" name="password">
             <br><br>
             <button class="login-button" type="submit">Login</button>
         </form>
