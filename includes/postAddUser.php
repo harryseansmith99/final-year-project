@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $status = ($userSec == 1) ? "Standard" : "Admin";
             $successMessageProduct = "Successfully Added New " . $status ." User: " . $newEmail;
 
-            // clear the variables so another new user can be added
+            // clear the form input variables
             $newFirstName = "";
             $newLastName = "";
             $newEmail = "";

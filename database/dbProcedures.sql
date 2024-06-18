@@ -262,11 +262,12 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_getUserByEmail(
-    IN userEmailSearch VARCHAR(255)
+    IN userEmailSearch VARCHAR(255),
+    IN passwordSearch VARCHAR(255)
 )
 BEGIN
     SELECT * FROM UserTable
-    WHERE UserTable.email = userEmailSearch;
+    WHERE UserTable.email = userEmailSearch and UserTable.userPassword = passwordSearch;
 END $$
 DELIMITER ;
 
