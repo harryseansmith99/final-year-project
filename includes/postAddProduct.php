@@ -69,7 +69,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         }
         else {
-            $successMessageProduct = "successfully added product";
+            $successMessageProduct = "Successfully Added Product";
+
+            // reset fields
+            $categorySelect = "";
+            $newProductName = "";
+            $newProductDescription = "";
+            $newSerialNumber = "";
+            $storageLocationToAdd = "";
+            $receivedQuantity = "";
+            $possibleMinimumQuantity = "";
+            $possibleMaximumQuantity = "";
         }
 
     } while(false);

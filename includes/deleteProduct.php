@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         } 
         else {
             // product has been deleted, redirect back to products.php
-            header("location: products.php");
+            header("location: ../products.php");
         }
     }
 }

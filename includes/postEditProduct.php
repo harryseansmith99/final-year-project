@@ -17,6 +17,7 @@ $newSerialNumber = "";
 $storageLocationToAdd = "";
 $possibleMinimumQuantity = "";
 $possibleMaximumQuantity = "";
+
 $errorMessage = "";
 $successMessageProduct = "";
 
@@ -41,19 +42,22 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 $storageLocationToAdd = $product['storageLocation'];
                 $possibleMinimumQuantity = $product['minimumStockLevel'];
                 $possibleMaximumQuantity = $product['maximumStockLevel'];
-            } else {
+            } 
+            else {
                 $errorMessage = "Product not found";
                 error_log($errorMessage); // Log error
                 echo $errorMessage;
                 exit;
             }
-        } else {
+        } 
+        else {
             $errorMessage = "Invalid product ID";
             error_log($errorMessage); // Log error
             echo $errorMessage;
             exit;
         }
-    } else {
+    } 
+    else {
         $errorMessage = "editProductId not found in GET request";
         error_log($errorMessage); // Log error
         echo $errorMessage;
@@ -81,14 +85,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $possibleMaximumQuantity = (int)$_POST["possibleMaximumQuantity"];
 
     // Debugging statements to check captured values
-    echo "Product ID: $productID<br>";
-    echo "Category: $categorySelect<br>";
-    echo "Product Name: $newProductName<br>";
-    echo "Product Description: $newProductDescription<br>";
-    echo "Serial Number: $newSerialNumber<br>";
-    echo "Storage Location: $storageLocationToAdd<br>";
-    echo "Minimum Quantity: $possibleMinimumQuantity<br>";
-    echo "Maximum Quantity: $possibleMaximumQuantity<br>";
+    // echo "Product ID: $productID<br>";
+    // echo "Category: $categorySelect<br>";
+    // echo "Product Name: $newProductName<br>";
+    // echo "Product Description: $newProductDescription<br>";
+    // echo "Serial Number: $newSerialNumber<br>";
+    // echo "Storage Location: $storageLocationToAdd<br>";
+    // echo "Minimum Quantity: $possibleMinimumQuantity<br>";
+    // echo "Maximum Quantity: $possibleMaximumQuantity<br>";
 
     // do while false allows this to break out after finished
     do {
@@ -137,6 +141,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } 
         else {
             $successMessageProduct = "Successfully Edited Product";
+
+            $productID = "";
+            $categorySelect = "";
+            $newProductName = "";
+            $newProductDescription = ""; 
+            $newSerialNumber = "";
+            $storageLocationToAdd = "";
+            $possibleMinimumQuantity = "";
+            $possibleMaximumQuantity = "";
             
             // Redirect after successful update
             header("location: products.php");

@@ -57,7 +57,7 @@
                             <td>$row[email]</td>
                             <td>$row[secLevel]</td>
                             <td>
-                                <a class='btn btn-primary btn-sm' href=#edit-user>
+                                <a class='btn btn-primary btn-sm' href='editUser.php?editUserId=$row[userID]'>
                                     <span class='button-font'>Edit</span><br>
                                     <span class='button-font'>User</span>
                                 </a>
