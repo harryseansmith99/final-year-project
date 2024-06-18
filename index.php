@@ -1,3 +1,7 @@
+<?php 
+// include "includes/login.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +12,12 @@
 </head>
 <body class="login-body">
     <div class="login-form-container">
-        <form action="/action_page.php" method="post">
+        <form action="index.php" method="post">
             <label for="email"><b>Email</b></label>
-            <input class="email-input" type="text" placeholder="Enter Email" name="email">
+            <input class="email-input" type="text" placeholder="Enter Email" name="email" id="loginInputEmail">
             <br><br>
             <label for="password"><b>Password</b></label>
-            <input class="password-input" type="password" placeholder="Enter Password" name="password">
+            <input class="password-input" type="password" placeholder="Enter Password" name="password" id="loginInputPassword">
             <br><br>
             <button class="login-button" type="submit">Login</button>
         </form>

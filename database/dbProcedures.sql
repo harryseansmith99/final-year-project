@@ -250,7 +250,8 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_getUserByID(
-    IN userIdSearch INT)
+    IN userIdSearch INT
+)
 BEGIN
     SELECT * FROM UserTable
     WHERE UserTable.userID = userIdSearch;
@@ -261,7 +262,8 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_getUserByEmail(
-    IN userEmailSearch VARCHAR(255))
+    IN userEmailSearch VARCHAR(255)
+)
 BEGIN
     SELECT * FROM UserTable
     WHERE UserTable.email = userEmailSearch;

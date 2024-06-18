@@ -53,6 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
         }
 
+        // hash password, currently uses bcrypt in PASSWORD_DEFAULT
+        $hashedNewPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+
         // Prepare and bind
         $sql = $conn->prepare("CALL proc_addNewUser(?, ?, ?, ?, ?)");
         if (!$sql) {
@@ -66,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $newFirstName,
             $newLastName,
             $newEmail,
-            $newPassword,
+            $hashedNewPassword,
             $userSec
         );
 
