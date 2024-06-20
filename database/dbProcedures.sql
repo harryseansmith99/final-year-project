@@ -309,4 +309,16 @@ CREATE OR REPLACE PROCEDURE proc_deleteUserById(
 BEGIN
     DELETE FROM UserTable WHERE UserTable.userID = userIdSearch;
 END $$
+DELIMITER ;
 
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE proc_changePasswordById(
+    IN userIdSearch INT,
+    IN newPassword VARCHAR(255)
+)
+BEGIN
+    UPDATE UserTable SET
+        UserTable.userPassword = newPassword
+    WHERE UserTable.userID = userIdSearch;
+END $$
