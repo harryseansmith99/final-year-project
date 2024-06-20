@@ -48,7 +48,8 @@
 body {
     font-family: "Lato", sans-serif;
 }
-  
+
+/* current sidebar look and feel
 .sidenav {
     height: 100%;
     width: 160px;
@@ -73,6 +74,41 @@ body {
 .sidenav a:hover {
     color: #f1f1f1;
 }
+*/
+
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #363535;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 20px 16px; /* Increase padding for more spacing */
+    text-decoration: none;
+    font-size: 25px; /* Adjust font size */
+    color: #ffffff;
+    display: block;
+    text-align: center; /* Center text */
+    border-bottom: 1px solid #444; /* Add bottom border */
+}
+
+.sidenav a:last-child {
+    border-bottom: none; /* Remove border from last link */
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+    background-color: #575757; /* Add hover background color */
+}
+
+
+
 
 .main {
     margin-left: 160px; /* Same as the width of the sidenav */
@@ -112,10 +148,11 @@ table {
 }
 
 .header-bar {
+    color: #ffffff;
     width: 100%;
-    background-color: #abb1b7; /* Light gray background */
+    background-color: #363535; /* Light gray background */
     padding: 20px 0; /* Padding for top and bottom */
     text-align: center; /* Center the text */
-    box-shadow: 0 2px 4px #0000001a; /* Optional shadow for better look */
+    box-shadow: 0 2px 4px #a4a2a21a; /* Optional shadow for better look */
     margin-bottom: 20px; /* Space below the header bar */
 }
