@@ -11,6 +11,7 @@ include "includes/postAddUser.php";
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css?<?php echo time(); ?>">
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script defer src="assets/js/validateAddUser.js"></script>
 </head>
 <body>
     
@@ -34,40 +35,55 @@ include "includes/postAddUser.php";
                 ";
             }
             ?>
-            <form action="addUser.php" method="post">
+            <form id="addUserForm" action="addUser.php" method="post">
                 <div class="row mb-3">
-                    <label class="col-sm col-form-label">New User First Name</label>
-                    <br>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="newFirstName" value="<?php echo $newFirstName;?>">
+                    <div class="input-control">
+                        <label class="col-sm col-form-label">New User First Name</label>
+                        <br>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="newFirstName" name="newFirstName" value="<?php echo $newFirstName;?>">
+                            <div class="error"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm col-form-label">New User Last Name</label>
-                    <br>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="newLastName" value="<?php echo $newLastName;?>">
+                    <div class="input-control">
+                        <label class="col-sm col-form-label">New User Last Name</label>
+                        <br>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="newLastName" name="newLastName" value="<?php echo $newLastName;?>">
+                            <div class="error"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm col-form-label">New User Email</label>
-                    <br>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="newEmail" value="<?php echo $newEmail;?>">
+                    <div class="input-control">
+                        <label class="col-sm col-form-label">New User Email</label>
+                        <br>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="newEmail" name="newEmail" value="<?php echo $newEmail;?>">
+                            <div class="error"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm col-form-label">New User Password</label>
-                    <br>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="newPassword" value="<?php echo $newPassword;?>">
+                    <div class="input-control">
+                        <label class="col-sm col-form-label">New User Password</label>
+                        <br>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="newPassword" name="newPassword" value="<?php echo $newPassword;?>">
+                            <div class="error"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm col-form-label">Confirm New User Password</label>
-                    <br>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="confirmNewPassword" value="<?php echo $confirmNewPassword;?>">
+                    <div class="input-control">
+                        <label class="col-sm col-form-label">Confirm New User Password</label>
+                        <br>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="confirmNewPassword" name="confirmNewPassword" value="<?php echo $confirmNewPassword;?>">
+                            <div class="error"></div>
+                        </div>
                     </div>
                 </div>
                 <div>
