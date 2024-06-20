@@ -69,7 +69,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $successMessageProduct = "Successfully Deallocated Stock";
                 error_log($successMessageProduct); // Log success message
             }
-            
+            // reset fields to be clear
+            $productSelect = "";
+            $amount = "";
+            $incOrDec = "";
         }
 
 

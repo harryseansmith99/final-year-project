@@ -11,6 +11,7 @@ include "includes/postAlterStock.php";
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css?<?php echo time(); ?>">
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script defer src="assets/js/validateAlterStock.js"></script>
 </head>
 <body>
     
@@ -34,7 +35,7 @@ include "includes/postAlterStock.php";
                     ";
                 }
                 ?>
-                <form action="alterStock.php" method="post">
+                <form id="alterStockForm" action="alterStock.php" method="post">
                     <div class="row mb-3">
                         <label>Product</label>
                         <select name="productSelect" class="form-select form-select-md">
@@ -43,10 +44,13 @@ include "includes/postAlterStock.php";
                         </select>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Amount</label>
-                        <br>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="amount" value="<?php echo $amount;?>">
+                        <div class="input-control">
+                            <label class="col-sm col-form-label">Amount</label>
+                            <br>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="amount" name="amount" value="<?php echo $amount;?>">
+                                <div class="error"></div>
+                            </div>
                         </div>
                     </div>
                     <div>
