@@ -11,6 +11,7 @@ include "includes/postEditUser.php";
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css?<?php echo time(); ?>">
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script defer src="assets/js/validateEditUser.js"></script>
 </head>
 <body>
     
@@ -34,27 +35,36 @@ include "includes/postEditUser.php";
                 ";
             }
             ?>
-            <form action="editUser.php" method="post">
+            <form id="editUserForm" action="editUser.php" method="post">
             <input type="hidden" name="userID" value="<?php echo $userID; ?>">
                 <div class="row mb-3">
-                    <label class="col-sm col-form-label">First Name</label>
-                    <br>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="editFirstName" value="<?php echo $editFirstName;?>">
+                    <div class="input-control">
+                        <label class="col-sm col-form-label">First Name</label>
+                        <br>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="editFirstName" name="editFirstName" value="<?php echo $editFirstName;?>">
+                            <div class="error"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm col-form-label">User Last Name</label>
-                    <br>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="editLastName" value="<?php echo $editLastName;?>">
+                    <div class="input-control">
+                        <label class="col-sm col-form-label">User Last Name</label>
+                        <br>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="editLastName" name="editLastName" value="<?php echo $editLastName;?>">
+                            <div class="error"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label class="col-sm col-form-label">User Email</label>
-                    <br>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="editEmail" value="<?php echo $editEmail;?>">
+                    <div class="input-control">
+                        <label class="col-sm col-form-label">User Email</label>
+                        <br>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="editEmail" name="editEmail" value="<?php echo $editEmail;?>">
+                            <div class="error"></div>
+                        </div>
                     </div>
                 </div>
                 <br><br>
