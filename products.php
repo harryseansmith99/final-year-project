@@ -18,7 +18,7 @@
 
         <div class="main">
 
-            <h1 id="my_header">All Current Products</h1>
+            <h1 class="header-bar">All Current Products</h1>
             <br><br>
             
             <a class="btn btn-primary btn-lg mx-5" href="addProduct.php" role="button">Add New Product</a>
@@ -34,7 +34,7 @@
             <br><br><br>
 
             <div class="content">
-                <table class="table">
+                <table class="table table-striped table-bordered">
                     <thead>
                         <tr class="fs-9">
                             <th>Product Name</th>
@@ -73,14 +73,14 @@
                             <td>$row[maximumStockLevel]</td>
                             <td>$row[storageLocation]</td>
                             <td>
-                                <a class='btn btn-primary btn-sm' href='editProduct.php?editProductId=$row[productID]'>
+                                <a class='btn btn-primary btn-sm fixed-size-btn' href='editProduct.php?editProductId=$row[productID]'>
                                     <span class='button-font'>Edit</span><br>
                                     <span class='button-font'>Product</span>
                                 </a>";
 
                         // if the current user is an admin, then echo out the delete product button
                         if ($isAdmin) {
-                            echo "<a class='btn btn-danger btn-sm' href='includes/deleteProduct.php?deleteProductId=$row[productID]'>
+                            echo "<a class='btn btn-danger btn-sm delete-product-btn fixed-size-btn' href='includes/deleteProduct.php?deleteProductId=$row[productID]'>
                             <span class='button-font'>Delete</span><br>
                             <span class='button-font'>Product</span>
                             </a>

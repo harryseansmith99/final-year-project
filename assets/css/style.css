@@ -103,3 +103,19 @@ body {
     .sidenav a {font-size: 18px;}
 }
 
+.delete-product-btn {
+    margin-left: 5px;
+}
+
+table {
+    text-align: center;
+}
+
+.header-bar {
+    width: 100%;
+    background-color: #abb1b7; /* Light gray background */
+    padding: 20px 0; /* Padding for top and bottom */
+    text-align: center; /* Center the text */
+    box-shadow: 0 2px 4px #0000001a; /* Optional shadow for better look */
+    margin-bottom: 20px; /* Space below the header bar */
+}
