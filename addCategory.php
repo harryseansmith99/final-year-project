@@ -11,6 +11,7 @@ include "includes/postAddCategory.php";
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css?<?php echo time(); ?>">
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script defer src="assets/js/validateAddCategory.js"></script>
 </head>
 <body>
     
@@ -34,12 +35,15 @@ include "includes/postAddCategory.php";
                 ";
             }
             ?>
-            <form action="addCategory.php" method="post">
+            <form id="addCategoryForm" action="addCategory.php" method="post">
                 <div class="row mb-3">
-                    <label class="col-sm col-form-label">New Category Name</label>
-                    <br>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="newCategoryName" value="<?php echo $newCategoryName;?>">
+                    <div class="input-control">
+                        <label class="col-sm col-form-label">New Category Name</label>
+                        <br>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="newCategoryName" name="newCategoryName" value="<?php echo $newCategoryName;?>">
+                            <div class="error"></div>
+                        </div>
                     </div>
                 </div>
                 <br><br>

@@ -11,6 +11,7 @@ include "includes/postAddProduct.php";
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css?<?php echo time(); ?>">
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script defer src="assets/js/validateAddProduct.js"></script>
 </head>
 <body>
     
@@ -34,7 +35,7 @@ include "includes/postAddProduct.php";
                     ";
                 }
                 ?>
-                <form action="addProduct.php" method="post">
+                <form id="addProductForm" action="addProduct.php" method="post">
                     <div class="row mb-3">
                         <label >Cateogry</label>
                         <select name="categorySelect" class="form-select form-select-md">
