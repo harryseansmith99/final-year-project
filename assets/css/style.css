@@ -98,9 +98,9 @@ body {
     border-bottom: 1px solid #444; /* Add bottom border */
 }
 
-.sidenav a:last-child {
-    border-bottom: none; /* Remove border from last link */
-}
+.sidenav a:first-child {
+    border-top: 1px solid #444; /* Add bottom border */
+} 
 
 .sidenav a:hover {
     color: #f1f1f1;
