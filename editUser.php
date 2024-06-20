@@ -22,7 +22,7 @@ include "includes/postEditUser.php";
 
         <div class="main">
 
-            <h1>Provide Altered Details For User</h1>
+            <h1 class="header-bar">Provide Altered Details For User</h1>
             <br><br>
             <?php
             if (!empty($errorMessage)) {

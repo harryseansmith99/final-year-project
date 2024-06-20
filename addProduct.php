@@ -22,7 +22,7 @@ include "includes/postAddProduct.php";
 
         <div class="main">
 
-            <h1>Provide Details For New Product</h1>
+            <h1 class="header-bar">Provide Details For New Product</h1>
 
                 <?php
                 if (!empty($errorMessage)) {

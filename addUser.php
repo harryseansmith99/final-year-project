@@ -22,7 +22,7 @@ include "includes/postAddUser.php";
 
         <div class="main">
 
-            <h1>Provide Details For New User</h1>
+            <h1 class="header-bar">Provide Details For New User</h1>
             <br><br>
             <?php
             if (!empty($errorMessage)) {

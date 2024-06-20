@@ -17,14 +17,14 @@
 
         <div class="main">
 
-            <h1 id="my_header">All Current Users</h1>
+            <h1 class="header-bar">All Current Users</h1>
             <br><br>
             
             <a class="btn btn-primary btn-lg mx-5" href="addUser.php" role="button">Add New User</a>
             <br><br><br>
 
             <div class="content">
-                <table class="table">
+                <table class="table table-striped table-bordered">
                     <thead>
                         <tr class="fs-9">
                             <th>User ID</th>
@@ -57,13 +57,15 @@
                             <td>$row[email]</td>
                             <td>$row[secLevel]</td>
                             <td>
-                                <a class='btn btn-primary btn-sm' href='editUser.php?editUserId=$row[userID]'>
+                                <a class='btn btn-primary btn-sm fixed-size-button' href='editUser.php?editUserId=$row[userID]'>
                                     <span class='button-font'>Edit</span><br>
                                     <span class='button-font'>User</span>
+                                    
                                 </a>
-                                <a class='btn btn-danger btn-sm' href='includes/deleteUser.php?deleteUserId=$row[userID]'>
+                                <a class='btn btn-danger btn-sm fixed-size-btn' href='includes/deleteUser.php?deleteUserId=$row[userID]'>
                                     <span class='button-font'>Delete</span><br>
                                     <span class='button-font'>User</span>
+                                    
                                 </a>
                             </td>
                         ";
