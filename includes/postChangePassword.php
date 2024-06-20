@@ -36,11 +36,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $errorMessage = "Error updating password: " . $conn->error;
             } else {
                 $successMessage = "Password successfully updated";
+                header("Location: products.php");
             }
             $sql->close();
         }
     }
 }
+
 
 $conn->close();
 ?>

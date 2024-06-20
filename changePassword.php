@@ -12,6 +12,7 @@ include "includes/postChangePassword.php";
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css?<?php echo time(); ?>">
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script defer src="assets/js/validateChangePassword.js"></script>
 </head>
 <body>
     
@@ -48,7 +49,7 @@ include "includes/postChangePassword.php";
                 </div>
                 <div class="row mb-3">
                     <div class="input-control">
-                        <label class="col-sm col-form-label">Conform New Password</label>
+                        <label class="col-sm col-form-label">Confirm New Password</label>
                         <br>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" id="confirmPassword" name="confirmPassword" value="<?php echo $confirmPassword;?>">
