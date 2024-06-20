@@ -22,7 +22,7 @@ include "includes/postAddCategory.php";
 
         <div class="main">
 
-            <h1>Provide New Category Name</h1>
+            <h1 class="header-bar">Provide New Category Name</h1>
             <br><br>
             <?php
             if (!empty($errorMessage)) {

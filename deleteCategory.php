@@ -22,7 +22,7 @@ include "includes/postDeleteCategory.php";
 
         <div class="main">
  
-            <h1>Delete Category</h1>
+            <h1 class="header-bar">Delete Category</h1>
             <br><br>
             <?php
             if (!empty($errorMessage)) {

@@ -22,7 +22,7 @@ include "includes/postEditCategory.php";
 
         <div class="main">
 
-            <h1>Edit Category Name</h1>
+            <h1 class="header-bar">Edit Category Name</h1>
             <br><br>
 
                 <?php

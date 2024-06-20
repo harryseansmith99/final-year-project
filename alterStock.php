@@ -22,7 +22,7 @@ include "includes/postAlterStock.php";
 
         <div class="main">
 
-            <h1>Enter Amount To Book In/Out For Product</h1>
+            <h1 class="header-bar">Enter Amount To Book In/Out For Product</h1>
 
                 <?php
                 if (!empty($errorMessage)) {

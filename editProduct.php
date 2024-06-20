@@ -22,7 +22,7 @@ include "includes/postEditProduct.php";
 
         <div class="main">
 
-            <h1>Provide Altered Details For Product</h1>
+            <h1 class="header-bar">Provide Altered Details For Product</h1>
 
                 <?php
                 if (!empty($errorMessage)) {
