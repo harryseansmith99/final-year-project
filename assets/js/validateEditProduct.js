@@ -3,13 +3,12 @@
 inspired by https://www.youtube.com/watch?v=CYlNJpltjMM&t=447s
 */
 
-console.log("validateAddProduct.js loaded");
+console.log("validatEditProduct.js loaded");
 
-const form = document.getElementById("addProductForm");
+const form = document.getElementById("editProductForm");
 const productName = document.getElementById("newProductName");
 const serialNumber = document.getElementById("newSerialNumber");
 const storageLocation = document.getElementById("storageLocationToAdd");
-const receivedQuantity = document.getElementById("receivedQuantity");
 const minQuantity = document.getElementById("possibleMinimumQuantity");
 const maxQuantity = document.getElementById("possibleMaximumQuantity");
 
@@ -37,11 +36,18 @@ const setSuccess = element => {
     inputControl.classList.remove("error");
 };
 
+
+// taken from https://www.quora.com/What-is-the-regular-expression-for-positive-integers-without-leading-zeros-minus-signs-or-commas
+const isValidAmount = amount => {
+    const re = /^[1-9][0-9]*$/;
+    console.log(re.test(amount));
+    return re.test(amount);
+}
+
 const validateInputs = () => {
     const productNameValue = productName.value.trim();
     const serialNumberValue = serialNumber.value.trim();
     const storageLocationValue = storageLocation.value.trim();
-    const receivedQuantityValue = receivedQuantity.value.trim();
     const minQuantityValue = minQuantity.value.trim();
     const maxQuantityValue = maxQuantity.value.trim();
 
@@ -68,26 +74,29 @@ const validateInputs = () => {
         setSuccess(storageLocation);
     }
 
-    if (receivedQuantityValue === "") {
-        setError(receivedQuantity, "Received Quantity Is Required");
-        isValid = false;
-    } else {
-        setSuccess(receivedQuantity);
-    }
-
     if (minQuantityValue === "") {
         setError(minQuantity, "Minimum Quantity Is Required");
         isValid = false;
-    } else {
+    } else if (!isValidAmount(minQuantityValue)) {
+        setError(minQuantity, "Quantity must be a whole positive number");
+        isValid = false;
+    }
+    else {
         setSuccess(minQuantity);
     }
+
 
     if (maxQuantityValue === "") {
         setError(maxQuantity, "Maximum Quantity Is Required");
         isValid = false;
-    } else {
+    } else if (!isValidAmount(maxQuantityValue)) {
+        setError(maxQuantity, "Quantity must be a whole positive number");
+        isValid = false;
+    }
+    else {
         setSuccess(maxQuantity);
     }
+
 
     return isValid; // Return the validity status
 };

@@ -11,6 +11,7 @@ include "includes/postEditProduct.php";
     <link rel="stylesheet" type="text/css" href="assets/css/style.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css?<?php echo time(); ?>">
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script defer src="assets/js/validateEditProduct.js"></script>
 </head>
 <body>
     
@@ -48,16 +49,18 @@ include "includes/postEditProduct.php";
                             <label class="col-sm col-form-label">Product Name</label>
                             <br>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="newProductName" value="<?php echo $newProductName;?>">
+                                <input type="text" class="form-control" id="newProductName" name="newProductName" value="<?php echo $newProductName;?>">
                                 <div class="error"></div>
                             </div>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Product Description</label>
-                        <br>
-                        <div class="col-sm-6">
-                            <textarea class="form-control" type="text" name="newProductDescription"><?php echo $newProductDescription;?></textarea>
+                        <div>
+                            <label class="col-sm col-form-label">Product Description</label>
+                            <br>
+                            <div class="col-sm-6">
+                                <textarea class="form-control" type="text" id="newProductDescription" name="newProductDescription"><?php echo $newProductDescription;?></textarea>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -65,7 +68,7 @@ include "includes/postEditProduct.php";
                             <label class="col-sm col-form-label">Serial Number</label>
                             <br>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="newSerialNumber" value="<?php echo $newSerialNumber;?>">
+                                <input type="text" class="form-control" id="newSerialNumber" name="newSerialNumber" value="<?php echo $newSerialNumber;?>">
                                 <div class="error"></div>
                             </div>
                         </div>
@@ -75,7 +78,7 @@ include "includes/postEditProduct.php";
                             <label class="col-sm col-form-label">Storage Location</label>
                             <br>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="storageLocationToAdd" value="<?php echo $storageLocationToAdd;?>">
+                                <input type="text" class="form-control" id="storageLocationToAdd" name="storageLocationToAdd" value="<?php echo $storageLocationToAdd;?>">
                                 <div class="error"></div>
                             </div>
                         </div>
@@ -85,7 +88,7 @@ include "includes/postEditProduct.php";
                             <label class="col-sm col-form-label">Minimum Quantity</label>
                             <br>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="possibleMinimumQuantity" value="<?php echo $possibleMinimumQuantity;?>">
+                                <input type="text" class="form-control" id="possibleMinimumQuantity" name="possibleMinimumQuantity" value="<?php echo $possibleMinimumQuantity;?>">
                                 <div class="error"></div>
                             </div>
                         </div>
@@ -95,7 +98,7 @@ include "includes/postEditProduct.php";
                             <label class="col-sm col-form-label">Maximum Quantity</label>
                             <br>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="possibleMaximumQuantity" value="<?php echo $possibleMaximumQuantity;?>">
+                                <input type="text" class="form-control" id="possibleMaximumQuantity" name="possibleMaximumQuantity" value="<?php echo $possibleMaximumQuantity;?>">
                                 <div class="error"></div>
                             </div>
                         </div>
