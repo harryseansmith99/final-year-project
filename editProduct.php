@@ -34,7 +34,7 @@ include "includes/postEditProduct.php";
                     ";
                 }
                 ?>
-                <form action="editProduct.php" method="post">
+                <form id="editProductForm" action="editProduct.php" method="post">
                 <input type="hidden" name="productID" value="<?php echo $productID; ?>">
                     <div class="row mb-3">
                         <label >Cateogry</label>
@@ -44,10 +44,13 @@ include "includes/postEditProduct.php";
                         </select>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Product Name</label>
-                        <br>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="newProductName" value="<?php echo $newProductName;?>">
+                        <div class="input-control">
+                            <label class="col-sm col-form-label">Product Name</label>
+                            <br>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="newProductName" value="<?php echo $newProductName;?>">
+                                <div class="error"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -58,31 +61,43 @@ include "includes/postEditProduct.php";
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Serial Number</label>
-                        <br>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="newSerialNumber" value="<?php echo $newSerialNumber;?>">
+                        <div class="input-control">
+                            <label class="col-sm col-form-label">Serial Number</label>
+                            <br>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="newSerialNumber" value="<?php echo $newSerialNumber;?>">
+                                <div class="error"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Storage Location</label>
-                        <br>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="storageLocationToAdd" value="<?php echo $storageLocationToAdd;?>">
+                        <div class="input-control">
+                            <label class="col-sm col-form-label">Storage Location</label>
+                            <br>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="storageLocationToAdd" value="<?php echo $storageLocationToAdd;?>">
+                                <div class="error"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Minimum Quantity</label>
-                        <br>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="possibleMinimumQuantity" value="<?php echo $possibleMinimumQuantity;?>">
+                        <div class="input-control">
+                            <label class="col-sm col-form-label">Minimum Quantity</label>
+                            <br>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="possibleMinimumQuantity" value="<?php echo $possibleMinimumQuantity;?>">
+                                <div class="error"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label class="col-sm col-form-label">Maximum Quantity</label>
-                        <br>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="possibleMaximumQuantity" value="<?php echo $possibleMaximumQuantity;?>">
+                        <div class="input-control">
+                            <label class="col-sm col-form-label">Maximum Quantity</label>
+                            <br>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="possibleMaximumQuantity" value="<?php echo $possibleMaximumQuantity;?>">
+                                <div class="error"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="row mb-3">

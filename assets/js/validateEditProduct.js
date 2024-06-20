@@ -37,14 +37,6 @@ const setSuccess = element => {
     inputControl.classList.remove("error");
 };
 
-
-// taken from https://www.quora.com/What-is-the-regular-expression-for-positive-integers-without-leading-zeros-minus-signs-or-commas
-const isValidAmount = amount => {
-    const re = /^[1-9][0-9]*$/;
-    console.log(re.test(amount));
-    return re.test(amount);
-}
-
 const validateInputs = () => {
     const productNameValue = productName.value.trim();
     const serialNumberValue = serialNumber.value.trim();
@@ -79,37 +71,23 @@ const validateInputs = () => {
     if (receivedQuantityValue === "") {
         setError(receivedQuantity, "Received Quantity Is Required");
         isValid = false;
-    } else if (!isValidAmount(receivedQuantityValue)) {
-        setError(receivedQuantity, "Quantity must be a whole positive number");
-        isValid = false;
-    }
-    else {
+    } else {
         setSuccess(receivedQuantity);
     }
 
     if (minQuantityValue === "") {
         setError(minQuantity, "Minimum Quantity Is Required");
         isValid = false;
-    } else if (!isValidAmount(minQuantityValue)) {
-        setError(minQuantity, "Quantity must be a whole positive number");
-        isValid = false;
-    }
-    else {
+    } else {
         setSuccess(minQuantity);
     }
-
 
     if (maxQuantityValue === "") {
         setError(maxQuantity, "Maximum Quantity Is Required");
         isValid = false;
-    } else if (!isValidAmount(maxQuantityValue)) {
-        setError(maxQuantity, "Quantity must be a whole positive number");
-        isValid = false;
-    }
-    else {
+    } else {
         setSuccess(maxQuantity);
     }
-
 
     return isValid; // Return the validity status
 };
