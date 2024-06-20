@@ -150,9 +150,10 @@ table {
 .header-bar {
     color: #ffffff;
     width: 100%;
-    background-color: #363535; /* Light gray background */
+    background-color: #818181; /* Light gray background */
     padding: 20px 0; /* Padding for top and bottom */
     text-align: center; /* Center the text */
     box-shadow: 0 2px 4px #a4a2a21a; /* Optional shadow for better look */
     margin-bottom: 20px; /* Space below the header bar */
+    border-radius: 10px;
 }
