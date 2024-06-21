@@ -31,10 +31,12 @@ User passwords are encrypted with BCrypt, also there are password constraints:
 For convenience there are two users already loaded in the database (with a hashed password), details below:
 
 - Admin:
+
   - Email: admin@gmail.com
   - Password: Admin123!
 
 - Standard:
+
   - Email: standard@gmail.com
   - Password: Standard123!
 
