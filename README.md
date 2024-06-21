@@ -40,6 +40,9 @@ Standard:
   - Email: standard@gmail.com
   - Password: Standard123!
 
+
+Have a look at in the **project-screenshots** folder to check out the look and feel of the site.
+
 ---
 
 ## Setup Instructions
