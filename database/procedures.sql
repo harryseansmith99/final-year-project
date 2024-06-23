@@ -27,7 +27,8 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_findProductById(
-    IN productIdSearch INT)
+    IN productIdSearch INT
+)
 BEGIN
     SELECT
         ProductTable.productID,
@@ -57,7 +58,8 @@ CREATE OR REPLACE PROCEDURE proc_addNewProduct(
     IN storageLocationToAdd TEXT,
     IN receivedQuantity INT,
     IN possibleMinStockLevel INT,
-    IN possibleMaxStockLevel INT)
+    IN possibleMaxStockLevel INT
+)
 BEGIN
     SET @categoryIdSearch = (SELECT CategoryTable.categoryID FROM CategoryTable WHERE categoryName = categoryNameSearch); 
     INSERT INTO ProductTable (categoryID_fk, productName, productDescription, productSerialNumber)
@@ -73,7 +75,8 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_deleteProductById(
-    IN productIdSearch INT)
+    IN productIdSearch INT
+)
 BEGIN
     DELETE FROM ProductTable WHERE ProductTable.productID = productIdSearch;
 END $$
@@ -90,7 +93,8 @@ CREATE OR REPLACE PROCEDURE proc_editProductDetails(
     IN newProductSerial VARCHAR(255),
     IN newLocation TEXT,
     IN newMinStockLevel INT,
-    IN newMaxStockLevel INT)
+    IN newMaxStockLevel INT
+)
 BEGIN
     SET @categoryIdSearch = (SELECT CategoryTable.categoryID FROM CategoryTable WHERE categoryName = categoryNameSearch); 
     UPDATE ProductTable SET 
@@ -127,7 +131,8 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_addNewCategory(
-    IN newCategoryName VARCHAR(255)) 
+    IN newCategoryName VARCHAR(255)
+) 
 BEGIN
     INSERT INTO CategoryTable (categoryName) VALUES (newCategoryName);
 END $$
@@ -151,7 +156,8 @@ DELIMITER ;
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE proc_deleteCategoryByName(
-    IN categoryNameSearch VARCHAR(255)) 
+    IN categoryNameSearch VARCHAR(255)
+) 
 BEGIN
     DELETE FROM CategoryTable WHERE CategoryTable.categoryName = categoryNameSearch;
 END $$
@@ -213,36 +219,6 @@ BEGIN
         UserTable.email,
         UserTable.secLevel
     FROM UserTable;
-END $$
-DELIMITER ;
-
-
-
-DELIMITER $$
-CREATE OR REPLACE PROCEDURE proc_getAllAdmins()
-BEGIN
-    SELECT
-        UserTable.userID,
-        UserTable.firstName,
-        UserTable.lastName,
-        UserTable.email
-    FROM UserTable
-    WHERE UserTable.secLevel = 1;
-END $$
-DELIMITER ;
-
-
-
-DELIMITER $$
-CREATE OR REPLACE PROCEDURE proc_getAllStandardStaff()
-BEGIN
-    SELECT
-        UserTable.userID,
-        UserTable.firstName,
-        UserTable.lastName,
-        UserTable.email
-    FROM UserTable
-    WHERE UserTable.secLevel = 2;
 END $$
 DELIMITER ;
 
