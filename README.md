@@ -41,7 +41,7 @@ Standard:
   - Password: Standard123!
 
 
-Have a look at in the **project-screenshots** folder to check out the look and feel of the site.
+Have a look in the **project-screenshots** folder to check out the look and feel of the site.
 
 ---
 
