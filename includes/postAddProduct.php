@@ -18,7 +18,7 @@ $errorMessage = "";
 $successMessageProduct = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $categorySelect = $_POST["categorySelect"];
+    $categorySelect = @$_POST["categorySelect"];
     $newProductName = $_POST["newProductName"];
     $newProductDescription = $_POST["newProductDescription"];
     $newSerialNumber = $_POST["newSerialNumber"];

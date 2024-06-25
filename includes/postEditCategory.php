@@ -22,7 +22,7 @@ $successMessageProduct = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     error_log("Form submitted: " . print_r($_POST, true)); // Log POST data
 
-    $categorySelect = $_POST["categorySelect"];
+    $categorySelect = @$_POST["categorySelect"];
     $newCategoryName = $_POST["newCategoryName"];
 
     // Log variables
@@ -34,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($newCategoryName)) {
             $errorMessage = "Category Name Field Required";
             error_log($errorMessage); // Log error
-            echo $errorMessage;
             break;
         }
 
@@ -44,7 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$sql) {
             $errorMessage = "Prepare failed: (" . $conn->errno . ") " . $conn->error;
             error_log($errorMessage); // Log error
-            echo $errorMessage;
             break;
         }
 
@@ -54,7 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$sql->execute()) {
             $errorMessage = "Execute failed: (" . $sql->errno . ") " . $sql->error;
             error_log($errorMessage); // Log error
-            echo $errorMessage;
             break;
         } else {
             $successMessageProduct = "Successfully Edited Category";

@@ -10,7 +10,7 @@ $errorMessage = "";
 $successMessageProduct = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $newCategoryName = $_POST["newCategoryName"];
+    $newCategoryName = @$_POST["newCategoryName"];
 
     // do while false allows this to break out after finished
     do {
