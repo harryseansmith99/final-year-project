@@ -47,7 +47,7 @@ Have a look in the **project-screenshots** folder to check out the look and feel
 
 ## Setup Instructions
 
-- Ensure you have installed LAMPP/XAMPP on your system.
+- Ensure you have installed XAMPP on your system.
 - Download/clone the project from the master branch, extract it if need be, and place it in the htdocs folder.
 - Go to phpMyadmin and create a new database named **inventory_management_db**.
 - When created, go to import, and import the **inventory_management_db.sql** file found in the database folder of the project.
